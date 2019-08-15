@@ -1,0 +1,9 @@
+.closed-pa {
+  background-color: #1CA979 !important;
+  color: #ffffff !important;
+}
+
+.invalid-cli {
+  background-color: red !important;
+  color: #ffffff !important;
+}

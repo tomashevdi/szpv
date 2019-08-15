@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Регистрация в ЖОС (РЕГИЗ)</title>
+  <script src="jquery-1.8.3.min.js"></script>
+  <script src="jquery.mask.min.js"></script>
+  <style type="text/css">
+    table.border {
+      border-collapse: collapse;
+    }
+    table.border, .border td {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+
+<body>
+<table width="450px">
+  <tr>
+    <td colspan="2"><h3><span id="pat"></span></h3></td>
+  </tr>
+
+  <tr>
+    <td>Подразделение: </td>
+    <td><select id="lpus"></select></td>
+  </tr>
+  <tr>
+    <td>Специальность:</td>
+    <td><select id="specs"></select></td>
+  </tr>
+  <tr>
+    <td>Врач:</td>
+    <td><select id="docts"></select></td>
+  </tr>
+  <tr>
+    <td>Причина:</td>
+    <td>
+      <select id="reason">
+        <option value="1">Отсутствуют свободные талоны</option>
+        <option value="2">Нет удобного времени</option>
+        <option value="3">Отсутствует специалист</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>Телефон:</td>
+    <td>
+      <input id="phone" type="text"/>
+    </td>
+  </tr>
+  <tr>
+    <td>Примечания:</td>
+    <td>
+      <input id="info" type="text"/>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <input id="send" type="button" onclick="$.sendPAR()" value="Подать заявку в ЖОС"/>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><h3><span id="res"></span></h3></td>
+  </tr>
+</table>
+
+<table id="pars" width="700px" class="border">
+
+</table>
+
+
+<script>
+  $.urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    return results[1] || 0;
+  }
+
+  var token = $.urlParam("token");
+  var srv = "http://10.145.156.254:7744/rfsz/webszp/reg/";
+  var srvTest = "http://192.168.0.68:7744/rfsz/webszp/reg/";
+
+  $( "#lpus" ).change(function() {
+    $("#specs").empty();
+    $("#docts").empty();
+    $.ajax({
+      type: "GET",
+      url: srv+"spec?token="+token+"&lpuId="+$("#lpus").val(),
+      contentType: "application/json",
+      dataType: "json",
+      success: function (data) {
+        var firstSpec = 0;
+        $.each(data, function () {
+          $("#specs").append($("<option></option>").val(this['specId']).html(this['specName']));
+          if (!firstSpec) firstSpec = this['specId'];
+        });
+        $("#specs").val(firstSpec).change();
+      },
+      error: function () {
+        alert("Возникла ошибка.");
+      }
+    });
+  });
+
+  $( "#specs" ).change(function() {
+    $("#docts").empty();
+    $.ajax({
+      type: "GET",
+      url: srv+"doct?token="+token+"&lpuId="+$("#lpus").val()+"&specId="+$("#specs").val(),
+      contentType: "application/json",
+      dataType: "json",
+      success: function (data) {
+        $("#docts").append($("<option></option>").val(0).html("Любой"));
+        $.each(data, function () {
+          $("#docts").append($("<option></option>").val(this['id']).html(this['name']));
+        });
+      },
+      error: function () {
+        alert("Возникла ошибка.");
+      }
+    });
+  });
+
+
+  $(document).ready(function() {
+    $('#phone').mask("8(000)0000000", {placeholder: "8(___)________"});
+
+    $.ajax({
+      type: "GET",
+      url: srv+"lpu?token="+token,
+      contentType: "application/json",
+      dataType: "json",
+      success: function (data) {
+        $("#lpus").empty();
+        var firstLpu = 0;
+        $.each(data, function () {
+          $("#lpus").append($("<option></option>").val(this['misId']).html(this['name']));
+          if (!firstLpu) firstLpu = this['misId'];
+        });
+        $("#lpus").val(firstLpu).change();
+      },
+      error: function () {
+        alert("Возникла ошибка.");
+      }
+    });
+
+    $.ajax({
+      type: "GET",
+      url: srv+"pat/"+$.urlParam("patId")+"?token="+token,
+      success: function (data) {
+        $("#pat").text(data);
+      },
+      error: function () {
+        alert("Возникла ошибка.");
+      }
+    });
+
+    $.ajax({
+      type: "GET",
+      url: srv+"phone/"+$.urlParam("patId")+"?token="+token,
+      success: function (data) {
+        if (! (data=="") ) $("#phone").val(data);
+      },
+      error: function () {
+        alert("Возникла ошибка при получении телефона.");
+      }
+    });
+
+    refreshPars();
+
+
+    window.resizeTo(450, 600);
+  });
+
+  $.sendPAR = function () {
+    if ($("#lpus").val()==null || $("#specs").val()==null || $("#phone").val()=="" || $("#phone").val().length!=13 ) {
+      alert("Заполните корректно поля (подр-ие, спец-ть, телефон)!");
+    } else {
+      $.ajax({
+        type: "GET",
+        url: srv+"par?token="+token+"&patId="+$.urlParam("patId")+"&specId="+$("#specs").val()+"&lpuId="+$("#lpus").val()+"&doctId="+$("#docts").val()+"&info="+encodeURIComponent($("#info").val())+"&reason="+$("#reason").val()+"&phone="+encodeURIComponent($("#phone").val()),
+        success: function (data) {
+          $("#res").text(data);
+          refreshPars();
+        },
+        error: function () {
+          alert("Возникла ошибка.");
+        }
+      });
+
+    }
+  }
+
+  function cancelPar(idPar) {
+    $.ajax({
+      type: "GET",
+      url: srv+"cancelPA/"+idPar+"?token="+token,
+      contentType: "application/json",
+      dataType: "json",
+      success: function (data) {
+        if (data==true) {
+          alert("Заявка в ЖОС отменена.");
+          refreshPars();
+        } else {
+          alert("Ошибка при отмене заявки из УО.");
+        }
+      },
+      error: function () {
+        alert("Ошибка при запросе на отмену заявки в УО.");
+      }
+    });
+  }
+
+  function refreshPars() {
+    $.ajax({
+      type: "GET",
+      url: srv+"par/"+$.urlParam("patId")+"?token="+token,
+      contentType: "application/json",
+      dataType: "json",
+      success: function (data) {
+        $("#pars").empty();
+        $("#pars").append("<tr><td>Дата</td><td>Специалист</td><td>Источник</td><td>Статус</td><td>Отменить</td></tr>");
+        $.each(data, function () {
+          let doc = this['nameDoc']==null ? 'Любой' : this['nameDoc'];
+          let source = "["+this['source']+"]";
+          switch (this['source']) {
+            case 1:
+              source = 'ЦТО';
+              break;
+            case 2:
+              source = 'Инфомат';
+              break;
+            case 3:
+              source = 'Регистратура';
+              break;
+            case 4:
+              source = 'АРМ врача';
+              break;
+            case 5:
+              source = 'Интернет';
+              break;
+            case 6:
+              source = 'Прочее';
+              break;
+          }
+          let status = "["+this['status']+"]";
+          let deactRef = "";
+          switch (this['status']) {
+            case 1:
+              status = '<span style="color: red">Активна</span>';
+              deactRef = "<input type=\"button\" value=\"Отменить\" onclick=\"cancelPar('"+this['idPar']+"')\">";
+              break;
+            case 2:
+              status = '<span style="color: green">Записан на прием</span>';
+              break;
+            case 3:
+              status = 'Отменена: '+(new Date(this['deactivateDate']).toLocaleString());
+              if (this['deactivateComment']) status=status+' '+this['deactivateComment'];
+              break;
+          }
+
+          $("#pars").append("<tr><td>"+(new Date(this['created']).toLocaleString())+"</td><td>"+this['nameSpec']+"<br/>"+doc+"</td><td>"+source+"</td><td>"+status+"</td><td>"+deactRef+"</td></tr>");
+        });
+      },
+      error: function () {
+        alert("Возникла ошибка при получении текущих заявок ЖОС.");
+      }
+    });
+  }
+
+</script>
+
+</body>

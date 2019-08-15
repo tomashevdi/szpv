@@ -1,0 +1,203 @@
+<p-growl [value]="msgs"></p-growl>
+<p-confirmDialog header="Подтверждение" acceptLabel="Да" rejectLabel="Нет" icon="fa fa-question-circle" width="425"></p-confirmDialog>
+
+<div class="ui-g-3" style="text-align: center">
+  <p-table [value]="doctors" selectionMode="single" [(selection)]="selectedDoct" (onRowSelect)="doctSelected()"
+           [scrollable]="true" scrollHeight="215px" dataKey="id">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th>Подр-ие</th>
+        <th>Врач</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr [pSelectableRow]="rowData">
+        <td>{{rowData['dept']}}</td>
+        <td>{{rowData['name']}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <div style="padding-bottom: 10px; padding-top: 10px">
+  <p-calendar #cal [(ngModel)]="selectedDate" (onSelect)="dateSelected()" (onMonthChange)="monthChanged($event)"
+              [inline]="true" [locale]="ru">
+    <ng-template pTemplate="date" let-date>
+      <span [ngStyle]="{ backgroundColor:
+        ( busyDates.indexOf(date.day) > -1 && month==date.month+1   ? '#7cc67c' : 'inherit' ) }">{{date.day}}
+      </span>
+    </ng-template>
+  </p-calendar>
+  </div>
+  <p-table [value]="queue" selectionMode="single" [scrollable]="true" scrollHeight="215px" [(selection)]="selectedQueue">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th>Время</th>
+        <th>Запись</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr [pSelectableRow]="rowData">
+        <td>{{rowData['time']}}</td>
+        <td>{{rowData['clientName']}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <div style="padding-bottom: 10px; padding-top: 10px">
+  <button type="button" pButton icon="fa-close" (click)="cancelQueue()" label="Отмена записи" [disabled]=" selectedQueue==null || selectedQueue.free==true" ></button>
+  <button type="button" pButton icon="fa-calendar-check-o" (click)="setAppointment()" label="Записать из ЖОС" [disabled]=" selectedQueue==null || selectedQueue.free!=true || selectedPA==null" ></button>
+  </div>
+</div>
+<div class="ui-g-9">
+  <p-table #paTable [columns]="cols" [value]="reqs" selectionMode="single" [paginator]="true" [rows]="10"
+           (onRowSelect)="paSelected()" [(selection)]="selectedPA" dataKey="idPar" [responsive]="true" rowExpandMode="single">
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 2.25em"></th>
+        <th [pSortableColumn]="'created'">Дата постановки <p-sortIcon [field]="'created'"></p-sortIcon></th>
+        <th [pSortableColumn]="'lpuName'">Подр-ие <p-sortIcon [field]="'lpuName'"></p-sortIcon></th>
+        <th [pSortableColumn]="'patient.surname'">Ф.И.О. <p-sortIcon [field]="'patient.surname'"></p-sortIcon></th>
+        <th [pSortableColumn]="'nameSpec'">Специальность <p-sortIcon [field]="'nameSpec'"></p-sortIcon></th>
+        <th [pSortableColumn]="'nameDoc'">Врач <p-sortIcon [field]="'nameDoc'"></p-sortIcon></th>
+      </tr>
+      <tr>
+        <th></th>
+        <th></th>
+        <th><p-dropdown [options]="lpuList" [style]="{'width':'100%'}" (onChange)="paTable.filter($event.value, 'lpuName', 'equals')"></p-dropdown></th>
+        <th><input pInputText type="text" (input)="paTable.filter($event.target.value, 'patient.surname', 'contains')"></th>
+        <th><p-dropdown [options]="specList" [style]="{'width':'100%'}" (onChange)="paTable.filter($event.value, 'nameSpec', 'equals')"></p-dropdown></th>
+        <th><input pInputText type="text" (input)="paTable.filter($event.target.value, 'nameDoc', 'contains')"></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-expanded="expanded">
+      <tr [pSelectableRow]="rowData.status!=1 ? null : rowData" [ngClass]="rowData.status!=1 ? 'closed-pa' : null" >
+        <td>
+          <a href="#" [pRowToggler]="rowData">
+            <i [ngClass]="expanded ? 'fa fa-fw fa-chevron-circle-down' : 'fa fa-fw fa-chevron-circle-right'"></i>
+          </a>
+        </td>
+        <td>{{rowData.created | date : 'dd-MM-yyyy'}}</td>
+        <td>{{rowData.lpuName}}</td>
+        <td [ngClass]="rowData.invalidClient==1 ? 'invalid-cli' : null">{{rowData['patient'].surname}} {{rowData['patient'].name}} {{rowData['patient'].secondName}}</td>
+        <td>{{rowData.nameSpec}}</td>
+        <td>{{rowData.nameDoc}}</td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="summary" let-rowData>
+      <div style="text-align:right">
+        <button type="button" pButton icon="fa-close" (click)="dialCancel=true" [disabled]="selectedPA==null"  label="Отмена заявки"></button>
+        <button type="button" pButton icon="fa-search" (click)="dialHistory=true"   label="Поиск заявки"></button>
+        <!--<button type="button" pButton icon="fa-file-o" label="Экспорт" (click)="paTable.exportCSV()"></button>-->
+        <button type="button" pButton icon="fa-refresh" (click)="refreshPAList()" label="Обновить"></button>
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
+      <tr>
+        <td [attr.colspan]="6">
+          <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
+            <div class="ui-g-12">
+              <div class="ui-g">
+                <div class="ui-g-3">
+                  <b>Заявка ЖОС:</b> {{rowData.idPar}}
+                </div>
+                <div class="ui-g-6">
+                  <b>Создана:</b> {{rowData.created | date : 'dd-MM-yyyy HH:mm'}}
+                </div>
+                <div class="ui-g-3">
+                  <b>ЛПУ:</b> ({{rowData.idLpu}}) {{rowData.lpuName}}
+                </div>
+
+                <div class="ui-g-3">
+                  <b>ПИН:</b> {{rowData['patient'].idPat}}
+                </div>
+                <div class="ui-g-6">
+                  <b>Ф.И.О.:</b> {{rowData['patient'].surname}} {{rowData['patient'].name}}
+                  {{rowData['patient'].secondName}}
+                </div>
+                <div class="ui-g-3">
+                  <b>Д/р:</b> {{rowData['patient'].birthDate | date : 'dd-MM-yyyy'}}
+                </div>
+
+                <div class="ui-g-3">
+                  <b>Телефон:</b> {{rowData['patient'].phone}}
+                </div>
+                <div class="ui-g-6">
+                  <b>Эл.почта:</b> {{rowData['patient'].email}}
+                </div>
+                <div class="ui-g-3">
+                  <b>Период:</b> {{rowData.period}}
+                </div>
+
+
+                <div class="ui-g-3">
+                  <b>Специальность:</b> {{rowData.nameSpec}}
+                </div>
+                <div class="ui-g-6">
+                  <b>Врач:</b> {{rowData.nameDoc}}
+                </div>
+                <div class="ui-g-3">
+                  <b>Статус:</b> {{rowData.status | pastatus }}
+                </div>
+
+
+                <div class="ui-g-3">
+                  <b>Причина:</b> {{rowData.claim | paclaim }}
+                </div>
+                <div class="ui-g-6">
+                  <b>Информация:</b> {{rowData.info}} {{rowData['patient'].addInfo}}
+                </div>
+                <div class="ui-g-3">
+                  <b>Источник:</b> {{rowData.source | pasource}}
+                </div>
+
+                <div class="ui-g-12" *ngIf="rowData.deactivateDate!=null">
+                  <div class="ui-g-3">
+                    <b>Дата отмены:</b> {{rowData.deactivateDate | date : 'dd-MM-yyyy'}}
+                  </div>
+                  <div class="ui-g-6">
+                    <b>Причина:</b> {{rowData.deactivateReason | paDeactReason}}
+                  </div>
+                  <div class="ui-g-3">
+                    <b>Прим.:</b> {{rowData.deactivateComment}}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <p-dialog header="Отмена заявки в ЖОС" [(visible)]="dialCancel" [modal]="true" [responsive]="true" [width]="400">
+    <div class="ui-g ui-fluid">
+      <div class="ui-g-3">
+        Причина:
+      </div>
+      <div class="ui-g-9">
+        <p-dropdown appendTo="body" [options]="cancelReasons" [(ngModel)]='cancelReason'
+                    [style]="{'width':'250px'}"></p-dropdown>
+      </div>
+      <div class="ui-g-12">
+        <input type="text" pInputText [(ngModel)]="cancelComment" placeholder="Примечание"/>
+      </div>
+    </div>
+    <p-footer>
+      <button type="text" (click)="cancelPAR()" pButton label="Отменить заявку"></button>
+    </p-footer>
+  </p-dialog>
+
+  <p-dialog header="Поиск истории заявок по пациенту" [(visible)]="dialHistory" [modal]="true" [responsive]="true" [width]="400">
+    <div class="ui-g ui-fluid">
+      <div class="ui-g-3">
+        ПИН-код:
+      </div>
+      <div class="ui-g-9">
+        <input type="text" pInputText [(ngModel)]="historyPid"/>      </div>
+    </div>
+    <p-footer>
+      <button type="text" (click)="searchPAR()" [disabled]="historyPid==null || historyPid==0" pButton label="Поиск заявок"></button>
+    </p-footer>
+  </p-dialog>
+</div>

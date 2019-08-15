@@ -1,0 +1,1400 @@
+<?xml version="1.0" encoding="utf-8"?><wsdl:definitions name="HubService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://tempuri.org/Imports">
+            <xsd:import schemaLocation="http://r78-rc.zdrav.netrika.ru/Hub24/HubService.svc?xsd=xsd0" namespace="http://tempuri.org/"/>
+            <xsd:import schemaLocation="http://r78-rc.zdrav.netrika.ru/Hub24/HubService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+            <xsd:import schemaLocation="http://r78-rc.zdrav.netrika.ru/Hub24/HubService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HubService2"/>
+            <xsd:import schemaLocation="http://r78-rc.zdrav.netrika.ru/Hub24/HubService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HubService2.Dto"/>
+            <xsd:import schemaLocation="http://r78-rc.zdrav.netrika.ru/Hub24/HubService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+            <xsd:import schemaLocation="http://r78-rc.zdrav.netrika.ru/Hub24/HubService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic"/>
+            <xsd:import schemaLocation="http://r78-rc.zdrav.netrika.ru/Hub24/HubService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/HubService2.ContractsClasses.PostAppointment"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="IHubService_CheckPatient_InputMessage">
+        <wsdl:part name="parameters" element="tns:CheckPatient"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_CheckPatient_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CheckPatientResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_CheckReferral_InputMessage">
+        <wsdl:part name="parameters" element="tns:CheckReferral"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_CheckReferral_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CheckReferralResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_SearchTop10Patient_InputMessage">
+        <wsdl:part name="parameters" element="tns:SearchTop10Patient"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_SearchTop10Patient_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SearchTop10PatientResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_AddNewPatient_InputMessage">
+        <wsdl:part name="parameters" element="tns:AddNewPatient"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_AddNewPatient_OutputMessage">
+        <wsdl:part name="parameters" element="tns:AddNewPatientResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetDocListFullTree_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetDocListFullTree"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetDocListFullTree_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetDocListFullTreeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_InspectDoctorsReferal_InputMessage">
+        <wsdl:part name="parameters" element="tns:InspectDoctorsReferal"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_InspectDoctorsReferal_OutputMessage">
+        <wsdl:part name="parameters" element="tns:InspectDoctorsReferalResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_InspectDoctorsReferral2_InputMessage">
+        <wsdl:part name="parameters" element="tns:InspectDoctorsReferral2"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_InspectDoctorsReferral2_OutputMessage">
+        <wsdl:part name="parameters" element="tns:InspectDoctorsReferral2Response"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetAppointmentsDemandDoctorsReferal_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetAppointmentsDemandDoctorsReferal"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetAppointmentsDemandDoctorsReferal_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetAppointmentsDemandDoctorsReferalResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetAvaibleAppointments_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetAvaibleAppointments"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetAvaibleAppointments_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetAvaibleAppointmentsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_SetAppointment_InputMessage">
+        <wsdl:part name="parameters" element="tns:SetAppointment"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_SetAppointment_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SetAppointmentResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetAvailableDates_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetAvailableDates"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetAvailableDates_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetAvailableDatesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetDoctorList_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetDoctorList"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetDoctorList_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetDoctorListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetAvailableDoctors_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetAvailableDoctors"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetAvailableDoctors_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetAvailableDoctorsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetLPUList_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetLPUList"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetLPUList_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetLPUListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetOrgList_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetOrgList"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetOrgList_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetOrgListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetSpesialityList_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetSpesialityList"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetSpesialityList_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetSpesialityListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetLpuToRFSZIList_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetLpuToRFSZIList"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetLpuToRFSZIList_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetLpuToRFSZIListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetDistrictList_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetDistrictList"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetDistrictList_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetDistrictListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetWorkingTime_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetWorkingTime"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetWorkingTime_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetWorkingTimeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetFullInfoById_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetFullInfoById"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetFullInfoById_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetFullInfoByIdResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_CreateClaimForRefusal_InputMessage">
+        <wsdl:part name="parameters" element="tns:CreateClaimForRefusal"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_CreateClaimForRefusal_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CreateClaimForRefusalResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetPatientHistory_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetPatientHistory"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetPatientHistory_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetPatientHistoryResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_UpdatePhoneByIdPat_InputMessage">
+        <wsdl:part name="parameters" element="tns:UpdatePhoneByIdPat"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_UpdatePhoneByIdPat_OutputMessage">
+        <wsdl:part name="parameters" element="tns:UpdatePhoneByIdPatResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetHubUserByGuid_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetHubUserByGuid"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetHubUserByGuid_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetHubUserByGuidResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetErrorList_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetErrorList"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetErrorList_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetErrorListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_SetWaitingList_InputMessage">
+        <wsdl:part name="parameters" element="tns:SetWaitingList"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_SetWaitingList_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SetWaitingListResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetStatusAnalysis_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetStatusAnalysis"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetStatusAnalysis_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetStatusAnalysisResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_SendNotificationAboutAppointment_InputMessage">
+        <wsdl:part name="parameters" element="tns:SendNotificationAboutAppointment"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_SendNotificationAboutAppointment_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SendNotificationAboutAppointmentResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_SendNotificationAboutAppointmentStatus_InputMessage">
+        <wsdl:part name="parameters" element="tns:SendNotificationAboutAppointmentStatus"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_SendNotificationAboutAppointmentStatus_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SendNotificationAboutAppointmentStatusResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetTodayAppointments_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetTodayAppointments"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetTodayAppointments_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetTodayAppointmentsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetLPUInfo_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetLPUInfo"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetLPUInfo_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetLPUInfoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetPatientsAreas_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetPatientsAreas"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetPatientsAreas_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetPatientsAreasResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_CheckIn_InputMessage">
+        <wsdl:part name="parameters" element="tns:CheckIn"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_CheckIn_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CheckInResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetVersion_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetVersion"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetVersion_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetVersionResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_PatientNotification_InputMessage">
+        <wsdl:part name="parameters" element="tns:PatientNotification"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_PatientNotification_OutputMessage">
+        <wsdl:part name="parameters" element="tns:PatientNotificationResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetAvailableAppointmentsByPARequest_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetAvailableAppointmentsByPARequest"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_GetAvailableAppointmentsByPARequest_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetAvailableAppointmentsByPARequestResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_SetAppointmentByPARequest_InputMessage">
+        <wsdl:part name="parameters" element="tns:SetAppointmentByPARequest"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_SetAppointmentByPARequest_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SetAppointmentByPARequestResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_RegisterPARequest_InputMessage">
+        <wsdl:part name="parameters" element="tns:RegisterPARequest"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_RegisterPARequest_OutputMessage">
+        <wsdl:part name="parameters" element="tns:RegisterPARequestResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_CancelPARequest_InputMessage">
+        <wsdl:part name="parameters" element="tns:CancelPARequest"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_CancelPARequest_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CancelPARequestResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_SearchActivePARequests_InputMessage">
+        <wsdl:part name="parameters" element="tns:SearchActivePARequests"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_SearchActivePARequests_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SearchActivePARequestsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_SearchPARequests_InputMessage">
+        <wsdl:part name="parameters" element="tns:SearchPARequests"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_SearchPARequests_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SearchPARequestsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_SearchCtoPARequests_InputMessage">
+        <wsdl:part name="parameters" element="tns:SearchCtoPARequests"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_SearchCtoPARequests_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SearchCtoPARequestsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_HandlePARequestChanged_InputMessage">
+        <wsdl:part name="parameters" element="tns:HandlePARequestChanged"/>
+    </wsdl:message>
+    <wsdl:message name="IHubService_HandlePARequestChanged_OutputMessage">
+        <wsdl:part name="parameters" element="tns:HandlePARequestChangedResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="IHubService">
+        <wsdl:operation name="CheckPatient">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/CheckPatient" message="tns:IHubService_CheckPatient_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/CheckPatientResponse" message="tns:IHubService_CheckPatient_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="CheckReferral">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/CheckReferral" message="tns:IHubService_CheckReferral_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/CheckReferralResponse" message="tns:IHubService_CheckReferral_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SearchTop10Patient">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/SearchTop10Patient" message="tns:IHubService_SearchTop10Patient_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/SearchTop10PatientResponse" message="tns:IHubService_SearchTop10Patient_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="AddNewPatient">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/AddNewPatient" message="tns:IHubService_AddNewPatient_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/AddNewPatientResponse" message="tns:IHubService_AddNewPatient_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetDocListFullTree">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/GetDocListFullTree" message="tns:IHubService_GetDocListFullTree_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/GetDocListFullTreeResponse" message="tns:IHubService_GetDocListFullTree_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="InspectDoctorsReferal">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/InspectDoctorsReferal" message="tns:IHubService_InspectDoctorsReferal_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/InspectDoctorsReferalResponse" message="tns:IHubService_InspectDoctorsReferal_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="InspectDoctorsReferral2">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/InspectDoctorsReferral2" message="tns:IHubService_InspectDoctorsReferral2_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/InspectDoctorsReferral2Response" message="tns:IHubService_InspectDoctorsReferral2_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetAppointmentsDemandDoctorsReferal">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/GetAppointmentsDemandDoctorsReferal" message="tns:IHubService_GetAppointmentsDemandDoctorsReferal_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/GetAppointmentsDemandDoctorsReferalResponse" message="tns:IHubService_GetAppointmentsDemandDoctorsReferal_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetAvaibleAppointments">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/GetAvaibleAppointments" message="tns:IHubService_GetAvaibleAppointments_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/GetAvaibleAppointmentsResponse" message="tns:IHubService_GetAvaibleAppointments_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SetAppointment">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/SetAppointment" message="tns:IHubService_SetAppointment_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/SetAppointmentResponse" message="tns:IHubService_SetAppointment_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetAvailableDates">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/GetAvailableDates" message="tns:IHubService_GetAvailableDates_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/GetAvailableDatesResponse" message="tns:IHubService_GetAvailableDates_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetDoctorList">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/GetDoctorList" message="tns:IHubService_GetDoctorList_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/GetDoctorListResponse" message="tns:IHubService_GetDoctorList_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetAvailableDoctors">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/GetAvailableDoctors" message="tns:IHubService_GetAvailableDoctors_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/GetAvailableDoctorsResponse" message="tns:IHubService_GetAvailableDoctors_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetLPUList">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/GetLPUList" message="tns:IHubService_GetLPUList_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/GetLPUListResponse" message="tns:IHubService_GetLPUList_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetOrgList">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/GetOrgList" message="tns:IHubService_GetOrgList_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/GetOrgListResponse" message="tns:IHubService_GetOrgList_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetSpesialityList">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/GetSpesialityList" message="tns:IHubService_GetSpesialityList_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/GetSpesialityListResponse" message="tns:IHubService_GetSpesialityList_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetLpuToRFSZIList">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/GetLpuToRFSZIList" message="tns:IHubService_GetLpuToRFSZIList_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/GetLpuToRFSZIListResponse" message="tns:IHubService_GetLpuToRFSZIList_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetDistrictList">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/GetDistrictList" message="tns:IHubService_GetDistrictList_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/GetDistrictListResponse" message="tns:IHubService_GetDistrictList_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetWorkingTime">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/GetWorkingTime" message="tns:IHubService_GetWorkingTime_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/GetWorkingTimeResponse" message="tns:IHubService_GetWorkingTime_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetFullInfoById">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/GetFullInfoById" message="tns:IHubService_GetFullInfoById_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/GetFullInfoByIdResponse" message="tns:IHubService_GetFullInfoById_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="CreateClaimForRefusal">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/CreateClaimForRefusal" message="tns:IHubService_CreateClaimForRefusal_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/CreateClaimForRefusalResponse" message="tns:IHubService_CreateClaimForRefusal_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetPatientHistory">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/GetPatientHistory" message="tns:IHubService_GetPatientHistory_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/GetPatientHistoryResponse" message="tns:IHubService_GetPatientHistory_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="UpdatePhoneByIdPat">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/UpdatePhoneByIdPat" message="tns:IHubService_UpdatePhoneByIdPat_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/UpdatePhoneByIdPatResponse" message="tns:IHubService_UpdatePhoneByIdPat_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetHubUserByGuid">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/GetHubUserByGuid" message="tns:IHubService_GetHubUserByGuid_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/GetHubUserByGuidResponse" message="tns:IHubService_GetHubUserByGuid_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetErrorList">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/GetErrorList" message="tns:IHubService_GetErrorList_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/GetErrorListResponse" message="tns:IHubService_GetErrorList_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SetWaitingList">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/SetWaitingList" message="tns:IHubService_SetWaitingList_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/SetWaitingListResponse" message="tns:IHubService_SetWaitingList_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetStatusAnalysis">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/GetStatusAnalysis" message="tns:IHubService_GetStatusAnalysis_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/GetStatusAnalysisResponse" message="tns:IHubService_GetStatusAnalysis_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SendNotificationAboutAppointment">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/SendNotificationAboutAppointment" message="tns:IHubService_SendNotificationAboutAppointment_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/SendNotificationAboutAppointmentResponse" message="tns:IHubService_SendNotificationAboutAppointment_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SendNotificationAboutAppointmentStatus">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/SendNotificationAboutAppointmentStatus" message="tns:IHubService_SendNotificationAboutAppointmentStatus_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/SendNotificationAboutAppointmentStatusResponse" message="tns:IHubService_SendNotificationAboutAppointmentStatus_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetTodayAppointments">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/GetTodayAppointments" message="tns:IHubService_GetTodayAppointments_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/GetTodayAppointmentsResponse" message="tns:IHubService_GetTodayAppointments_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetLPUInfo">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/GetLPUInfo" message="tns:IHubService_GetLPUInfo_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/GetLPUInfoResponse" message="tns:IHubService_GetLPUInfo_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetPatientsAreas">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/GetPatientsAreas" message="tns:IHubService_GetPatientsAreas_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/GetPatientsAreasResponse" message="tns:IHubService_GetPatientsAreas_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="CheckIn">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/CheckIn" message="tns:IHubService_CheckIn_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/CheckInResponse" message="tns:IHubService_CheckIn_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetVersion">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/GetVersion" message="tns:IHubService_GetVersion_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/GetVersionResponse" message="tns:IHubService_GetVersion_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="PatientNotification">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/PatientNotification" message="tns:IHubService_PatientNotification_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/PatientNotificationResponse" message="tns:IHubService_PatientNotification_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetAvailableAppointmentsByPARequest">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/GetAvailableAppointmentsByPARequest" message="tns:IHubService_GetAvailableAppointmentsByPARequest_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/GetAvailableAppointmentsByPARequestResponse" message="tns:IHubService_GetAvailableAppointmentsByPARequest_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SetAppointmentByPARequest">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/SetAppointmentByPARequest" message="tns:IHubService_SetAppointmentByPARequest_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/SetAppointmentByPARequestResponse" message="tns:IHubService_SetAppointmentByPARequest_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="RegisterPARequest">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/RegisterPARequest" message="tns:IHubService_RegisterPARequest_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/RegisterPARequestResponse" message="tns:IHubService_RegisterPARequest_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="CancelPARequest">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/CancelPARequest" message="tns:IHubService_CancelPARequest_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/CancelPARequestResponse" message="tns:IHubService_CancelPARequest_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SearchActivePARequests">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/SearchActivePARequests" message="tns:IHubService_SearchActivePARequests_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/SearchActivePARequestsResponse" message="tns:IHubService_SearchActivePARequests_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SearchPARequests">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/SearchPARequests" message="tns:IHubService_SearchPARequests_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/SearchPARequestsResponse" message="tns:IHubService_SearchPARequests_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SearchCtoPARequests">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/SearchCtoPARequests" message="tns:IHubService_SearchCtoPARequests_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/SearchCtoPARequestsResponse" message="tns:IHubService_SearchCtoPARequests_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="HandlePARequestChanged">
+            <wsdl:input wsaw:Action="http://tempuri.org/IHubService/HandlePARequestChanged" message="tns:IHubService_HandlePARequestChanged_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/IHubService/HandlePARequestChangedResponse" message="tns:IHubService_HandlePARequestChanged_OutputMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="BasicHttpBinding_IHubService" type="tns:IHubService">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="CheckPatient">
+            <wsdl:documentation>проверка наличия пациента в бд</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/CheckPatient" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>объект - Patient.  ряд параметров обязателен для заполнения</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CheckReferral">
+            <wsdl:documentation>получение данных о направлении</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/CheckReferral" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>номер направления</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SearchTop10Patient">
+            <wsdl:documentation>поиск первых 10-ти пациентов по параметрам</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/SearchTop10Patient" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>объект - Patient.  ряд параметров обязателен для заполнения</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="AddNewPatient">
+            <wsdl:documentation>добавление нового пациента</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/AddNewPatient" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>новый пациент</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDocListFullTree">
+            <wsdl:documentation>возвращает полный список всех врачей и специальностей</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/GetDocListFullTree" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор ЛПУ</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InspectDoctorsReferal">
+            <wsdl:documentation>проверяет код направления(только для сайта и инфомата)</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/InspectDoctorsReferal" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор ЛПУ</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InspectDoctorsReferral2">
+            <wsdl:documentation>Валидация кода направления 2</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/InspectDoctorsReferral2" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор ЛПУ</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAppointmentsDemandDoctorsReferal">
+            <wsdl:documentation>возвращает список талонов, требующих код направления для заданного врача и диапазона дат</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/GetAppointmentsDemandDoctorsReferal" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор врача</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAvaibleAppointments">
+            <wsdl:documentation>возвращает список свободных талонов для заданного врача и диапазона дат</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/GetAvaibleAppointments" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор врача</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SetAppointment">
+            <wsdl:documentation>запись на прием</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/SetAppointment" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор талона</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAvailableDates">
+            <wsdl:documentation>возвращает даты на которые возможна запись для конкретного врача</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/GetAvailableDates" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор врача</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDoctorList">
+            <wsdl:documentation>возвращает список врачей</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/GetDoctorList" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор врачебной специальности</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAvailableDoctors">
+            <wsdl:documentation>возвращает список врачей, доступных для записи пациента на прием</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/GetAvailableDoctors" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор ЛПУ</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetLPUList">
+            <wsdl:documentation>возвращает список учреждений</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/GetLPUList" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор района</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetOrgList">
+            <wsdl:documentation>возвращает список коммерческих и государственных МО</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/GetOrgList" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор района</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetSpesialityList">
+            <wsdl:documentation>возвращает список специальностей(должностей)</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/GetSpesialityList" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор ЛПУ</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetLpuToRFSZIList">
+            <wsdl:documentation>возвращает полный список учреждений проекта РФИСЗ</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/GetLpuToRFSZIList" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор Системы(сервиса)</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDistrictList">
+            <wsdl:documentation>возвращает список районов</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/GetDistrictList" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор Системы(сервиса)</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetWorkingTime">
+            <wsdl:documentation>возвращает время работы врача</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/GetWorkingTime" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор врача</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetFullInfoById">
+            <wsdl:documentation>возвращает информацию об объекте на основании его идентификатора</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/GetFullInfoById" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор врача</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateClaimForRefusal">
+            <wsdl:documentation>создает заявку на отмену записи на прием</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/CreateClaimForRefusal" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор ЛПУ</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetPatientHistory">
+            <wsdl:documentation>возвращает список записей и отказов от записи на прием</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/GetPatientHistory" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор ЛПУ</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UpdatePhoneByIdPat">
+            <wsdl:documentation>обновляет номер телефона пациента на основании его идентификатора</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/UpdatePhoneByIdPat" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор ЛПУ</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetHubUserByGuid">
+            <wsdl:documentation>возвращает пользователей хаба</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/GetHubUserByGuid" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>гуид пользователя(при пустом значении возвращает весь список пользователей)</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetErrorList">
+            <wsdl:documentation>возвращает классификатор ошибок</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/GetErrorList" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор Системы(сервиса)</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SetWaitingList">
+            <wsdl:documentation>добавляет пациента в лист ожидания</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/SetWaitingList" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор врача(опционально)</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetStatusAnalysis">
+            <wsdl:documentation>возвращает статус исследования</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/GetStatusAnalysis" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор исследования</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SendNotificationAboutAppointment">
+            <wsdl:documentation>метод уведомления хаба, о факте записи пациента на прием средствами МИС</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/SendNotificationAboutAppointment" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>врач</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SendNotificationAboutAppointmentStatus">
+            <wsdl:documentation>метод уведомления хаба, об изменении статуса записи на прием</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/SendNotificationAboutAppointmentStatus" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор факта записи</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetTodayAppointments">
+            <wsdl:documentation>метод находится в тестовой эксплуатации</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/GetTodayAppointments" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetLPUInfo">
+            <wsdl:documentation>возвращает информацию по конкретному или всем ЛПУ</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/GetLPUInfo" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор ЛПУ</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetPatientsAreas">
+            <wsdl:documentation>получение врачебных участков по пациенту</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/GetPatientsAreas" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор ЛПУ из справочника ЛПУ интеграционной платформы</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CheckIn">
+            <wsdl:documentation>метод находится в тестовой эксплуатации</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/CheckIn" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetVersion">
+            <wsdl:documentation>получение версии хаба</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/GetVersion" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="PatientNotification">
+            <wsdl:documentation>передача данных для оповещения пациента</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/PatientNotification" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор талона для записи из соответствующего справочника целевой МИС</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAvailableAppointmentsByPARequest">
+            <wsdl:documentation>запрос талонов по заявке на запись к врачу</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/GetAvailableAppointmentsByPARequest" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>данные заявки на запись к врачу</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SetAppointmentByPARequest">
+            <wsdl:documentation>осуществление записи по заявке из ЖОЗ</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/SetAppointmentByPARequest" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор талона для записи из соответствующего справочника целевой МИС</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RegisterPARequest">
+            <wsdl:documentation>регистрация заявки на прием к врачу</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/RegisterPARequest" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>контейнер параметров заявки</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CancelPARequest">
+            <wsdl:documentation>отмена заявки на прием к врачу</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/CancelPARequest" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>контейнер параметров заявки</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SearchActivePARequests">
+            <wsdl:documentation>поиск активных заявок в ЖОЗ</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/SearchActivePARequests" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>контейнер параметровов поиска</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SearchPARequests">
+            <wsdl:documentation>поиск заявок в ЖОЗ</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/SearchPARequests" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>контейнер параметровов поиска</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SearchCtoPARequests">
+            <wsdl:documentation>поиск заявок в ЖОЗ для ЦТО</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/SearchCtoPARequests" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>контейнер параметровов поиска</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="HandlePARequestChanged">
+            <wsdl:documentation>метод уведомления МИС о состоянии заявки ЖОЗ</wsdl:documentation>
+            <soap:operation soapAction="http://tempuri.org/IHubService/HandlePARequestChanged" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>данные заявки ЖОЗ</wsdl:documentation>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="Soap12_HubService" type="tns:IHubService">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="CheckPatient">
+            <wsdl:documentation>проверка наличия пациента в бд</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/CheckPatient" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>объект - Patient.  ряд параметров обязателен для заполнения</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CheckReferral">
+            <wsdl:documentation>получение данных о направлении</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/CheckReferral" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>номер направления</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SearchTop10Patient">
+            <wsdl:documentation>поиск первых 10-ти пациентов по параметрам</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/SearchTop10Patient" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>объект - Patient.  ряд параметров обязателен для заполнения</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="AddNewPatient">
+            <wsdl:documentation>добавление нового пациента</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/AddNewPatient" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>новый пациент</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDocListFullTree">
+            <wsdl:documentation>возвращает полный список всех врачей и специальностей</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/GetDocListFullTree" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор ЛПУ</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InspectDoctorsReferal">
+            <wsdl:documentation>проверяет код направления(только для сайта и инфомата)</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/InspectDoctorsReferal" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор ЛПУ</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InspectDoctorsReferral2">
+            <wsdl:documentation>Валидация кода направления 2</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/InspectDoctorsReferral2" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор ЛПУ</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAppointmentsDemandDoctorsReferal">
+            <wsdl:documentation>возвращает список талонов, требующих код направления для заданного врача и диапазона дат</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/GetAppointmentsDemandDoctorsReferal" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор врача</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAvaibleAppointments">
+            <wsdl:documentation>возвращает список свободных талонов для заданного врача и диапазона дат</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/GetAvaibleAppointments" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор врача</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SetAppointment">
+            <wsdl:documentation>запись на прием</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/SetAppointment" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор талона</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAvailableDates">
+            <wsdl:documentation>возвращает даты на которые возможна запись для конкретного врача</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/GetAvailableDates" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор врача</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDoctorList">
+            <wsdl:documentation>возвращает список врачей</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/GetDoctorList" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор врачебной специальности</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAvailableDoctors">
+            <wsdl:documentation>возвращает список врачей, доступных для записи пациента на прием</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/GetAvailableDoctors" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор ЛПУ</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetLPUList">
+            <wsdl:documentation>возвращает список учреждений</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/GetLPUList" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор района</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetOrgList">
+            <wsdl:documentation>возвращает список коммерческих и государственных МО</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/GetOrgList" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор района</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetSpesialityList">
+            <wsdl:documentation>возвращает список специальностей(должностей)</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/GetSpesialityList" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор ЛПУ</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetLpuToRFSZIList">
+            <wsdl:documentation>возвращает полный список учреждений проекта РФИСЗ</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/GetLpuToRFSZIList" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор Системы(сервиса)</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetDistrictList">
+            <wsdl:documentation>возвращает список районов</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/GetDistrictList" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор Системы(сервиса)</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetWorkingTime">
+            <wsdl:documentation>возвращает время работы врача</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/GetWorkingTime" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор врача</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetFullInfoById">
+            <wsdl:documentation>возвращает информацию об объекте на основании его идентификатора</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/GetFullInfoById" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор врача</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateClaimForRefusal">
+            <wsdl:documentation>создает заявку на отмену записи на прием</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/CreateClaimForRefusal" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор ЛПУ</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetPatientHistory">
+            <wsdl:documentation>возвращает список записей и отказов от записи на прием</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/GetPatientHistory" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор ЛПУ</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="UpdatePhoneByIdPat">
+            <wsdl:documentation>обновляет номер телефона пациента на основании его идентификатора</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/UpdatePhoneByIdPat" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор ЛПУ</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetHubUserByGuid">
+            <wsdl:documentation>возвращает пользователей хаба</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/GetHubUserByGuid" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>гуид пользователя(при пустом значении возвращает весь список пользователей)</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetErrorList">
+            <wsdl:documentation>возвращает классификатор ошибок</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/GetErrorList" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор Системы(сервиса)</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SetWaitingList">
+            <wsdl:documentation>добавляет пациента в лист ожидания</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/SetWaitingList" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор врача(опционально)</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetStatusAnalysis">
+            <wsdl:documentation>возвращает статус исследования</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/GetStatusAnalysis" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор исследования</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SendNotificationAboutAppointment">
+            <wsdl:documentation>метод уведомления хаба, о факте записи пациента на прием средствами МИС</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/SendNotificationAboutAppointment" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>врач</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SendNotificationAboutAppointmentStatus">
+            <wsdl:documentation>метод уведомления хаба, об изменении статуса записи на прием</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/SendNotificationAboutAppointmentStatus" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор факта записи</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetTodayAppointments">
+            <wsdl:documentation>метод находится в тестовой эксплуатации</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/GetTodayAppointments" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetLPUInfo">
+            <wsdl:documentation>возвращает информацию по конкретному или всем ЛПУ</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/GetLPUInfo" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор ЛПУ</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetPatientsAreas">
+            <wsdl:documentation>получение врачебных участков по пациенту</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/GetPatientsAreas" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор ЛПУ из справочника ЛПУ интеграционной платформы</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CheckIn">
+            <wsdl:documentation>метод находится в тестовой эксплуатации</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/CheckIn" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetVersion">
+            <wsdl:documentation>получение версии хаба</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/GetVersion" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="PatientNotification">
+            <wsdl:documentation>передача данных для оповещения пациента</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/PatientNotification" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор талона для записи из соответствующего справочника целевой МИС</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAvailableAppointmentsByPARequest">
+            <wsdl:documentation>запрос талонов по заявке на запись к врачу</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/GetAvailableAppointmentsByPARequest" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>данные заявки на запись к врачу</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SetAppointmentByPARequest">
+            <wsdl:documentation>осуществление записи по заявке из ЖОЗ</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/SetAppointmentByPARequest" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>идентификатор талона для записи из соответствующего справочника целевой МИС</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RegisterPARequest">
+            <wsdl:documentation>регистрация заявки на прием к врачу</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/RegisterPARequest" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>контейнер параметров заявки</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CancelPARequest">
+            <wsdl:documentation>отмена заявки на прием к врачу</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/CancelPARequest" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>контейнер параметров заявки</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SearchActivePARequests">
+            <wsdl:documentation>поиск активных заявок в ЖОЗ</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/SearchActivePARequests" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>контейнер параметровов поиска</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SearchPARequests">
+            <wsdl:documentation>поиск заявок в ЖОЗ</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/SearchPARequests" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>контейнер параметровов поиска</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SearchCtoPARequests">
+            <wsdl:documentation>поиск заявок в ЖОЗ для ЦТО</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/SearchCtoPARequests" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>контейнер параметровов поиска</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="HandlePARequestChanged">
+            <wsdl:documentation>метод уведомления МИС о состоянии заявки ЖОЗ</wsdl:documentation>
+            <soap12:operation soapAction="http://tempuri.org/IHubService/HandlePARequestChanged" style="document"/>
+            <wsdl:input>
+                <wsdl:documentation>данные заявки ЖОЗ</wsdl:documentation>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="HubService">
+        <wsdl:documentation>Региональный фрагмент информационной системы здравоохранения</wsdl:documentation>
+        <wsdl:port name="BasicHttpBinding_IHubService" binding="tns:BasicHttpBinding_IHubService">
+            <soap:address location="http://r78-rc.zdrav.netrika.ru/Hub24/HubService.svc"/>
+        </wsdl:port>
+        <wsdl:port name="Soap12_HubService" binding="tns:Soap12_HubService">
+            <soap12:address location="http://r78-rc.zdrav.netrika.ru/Hub24/HubService.svc/soap12"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,1788 @@
+<?xml version="1.0" encoding="utf-8"?><xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/">
+    <xs:import schemaLocation="http://r78-rc.zdrav.netrika.ru/Hub24/HubService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HubService2"/>
+    <xs:import schemaLocation="http://r78-rc.zdrav.netrika.ru/Hub24/HubService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+    <xs:import schemaLocation="http://r78-rc.zdrav.netrika.ru/Hub24/HubService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/HubService2.ContractsClasses.PostAppointment"/>
+    <xs:element name="CheckPatient">
+        <xs:annotation>
+            <xs:documentation>проверка наличия пациента в бд</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="pat" nillable="true" type="q1:Patient" xmlns:q1="http://schemas.datacontract.org/2004/07/HubService2">
+                    <xs:annotation>
+                        <xs:documentation>объект - Patient.  ряд параметров обязателен для заполнения</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idLpu" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CheckPatientResponse">
+        <xs:annotation>
+            <xs:documentation>проверка наличия пациента в бд</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="CheckPatientResult" nillable="true" type="q2:CheckPatientResult" xmlns:q2="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CheckReferral">
+        <xs:annotation>
+            <xs:documentation>получение данных о направлении</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="doctorsReferral" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>номер направления</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CheckReferralResponse">
+        <xs:annotation>
+            <xs:documentation>получение данных о направлении</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="CheckReferralResult" nillable="true" type="q3:CheckReferralResult" xmlns:q3="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SearchTop10Patient">
+        <xs:annotation>
+            <xs:documentation>поиск первых 10-ти пациентов по параметрам</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="pat" nillable="true" type="q4:Patient" xmlns:q4="http://schemas.datacontract.org/2004/07/HubService2">
+                    <xs:annotation>
+                        <xs:documentation>объект - Patient.  ряд параметров обязателен для заполнения</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idLpu" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SearchTop10PatientResponse">
+        <xs:annotation>
+            <xs:documentation>поиск первых 10-ти пациентов по параметрам</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="SearchTop10PatientResult" nillable="true" type="q5:SearchTop10PatientResult" xmlns:q5="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="AddNewPatient">
+        <xs:annotation>
+            <xs:documentation>добавление нового пациента</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="patient" nillable="true" type="q6:Patient" xmlns:q6="http://schemas.datacontract.org/2004/07/HubService2">
+                    <xs:annotation>
+                        <xs:documentation>новый пациент</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idLpu" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="approvedByTfoms" nillable="true" type="xs:boolean">
+                    <xs:annotation>
+                        <xs:documentation>прикреплен ли пациент к МО согласно сведениям ТФОМС</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="AddNewPatientResponse">
+        <xs:annotation>
+            <xs:documentation>добавление нового пациента</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="AddNewPatientResult" nillable="true" type="q7:AddNewPatientResult" xmlns:q7="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetDocListFullTree">
+        <xs:annotation>
+            <xs:documentation>возвращает полный список всех врачей и специальностей</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idLpu" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idPat" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор пациента</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetDocListFullTreeResponse">
+        <xs:annotation>
+            <xs:documentation>возвращает полный список всех врачей и специальностей</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetDocListFullTreeResult" nillable="true" type="q8:GetDocListFullTreeResult" xmlns:q8="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="InspectDoctorsReferal">
+        <xs:annotation>
+            <xs:documentation>проверяет код направления(только для сайта и инфомата)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idLpu" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="doctorsReferal" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>направление(код активации)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="InspectDoctorsReferalResponse">
+        <xs:annotation>
+            <xs:documentation>проверяет код направления(только для сайта и инфомата)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="InspectDoctorsReferalResult" nillable="true" type="q9:InspectDoctorsReferalResult" xmlns:q9="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="InspectDoctorsReferral2">
+        <xs:annotation>
+            <xs:documentation>Валидация кода направления 2</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idLpu" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="doctorsReferal" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>номер направления</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="surname" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>Фамилия пациента (заполняется как в выданном направлении)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="attachedReferral" nillable="true" type="q10:SearchOneDirectionResult" xmlns:q10="http://schemas.datacontract.org/2004/07/HubService2">
+                    <xs:annotation>
+                        <xs:documentation>Объект SearchOneResponse сервиса УО</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="InspectDoctorsReferral2Response">
+        <xs:annotation>
+            <xs:documentation>Валидация кода направления 2</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="InspectDoctorsReferral2Result" nillable="true" type="q11:InspectDoctorsReferral2Result" xmlns:q11="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetAppointmentsDemandDoctorsReferal">
+        <xs:annotation>
+            <xs:documentation>возвращает список талонов, требующих код направления для заданного врача и диапазона дат</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idDoc" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор врача</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idLpu" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idPat" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор пациента</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="appType" type="q12:AppointmentType" xmlns:q12="http://schemas.datacontract.org/2004/07/HubService2">
+                    <xs:annotation>
+                        <xs:documentation>тип приема(повторный или консультация)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="startVisit" type="xs:dateTime">
+                    <xs:annotation>
+                        <xs:documentation>начало диапазона поиска свободных талонов</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="endVisit" type="xs:dateTime">
+                    <xs:annotation>
+                        <xs:documentation>конец диапазона поиска свободных талонов</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetAppointmentsDemandDoctorsReferalResponse">
+        <xs:annotation>
+            <xs:documentation>возвращает список талонов, требующих код направления для заданного врача и диапазона дат</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetAppointmentsDemandDoctorsReferalResult" nillable="true" type="q13:GetAvaibleAppointmentsResult" xmlns:q13="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetAvaibleAppointments">
+        <xs:annotation>
+            <xs:documentation>возвращает список свободных талонов для заданного врача и диапазона дат</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idDoc" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор врача</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idLpu" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idPat" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор пациента</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="visitStart" type="xs:dateTime">
+                    <xs:annotation>
+                        <xs:documentation>начало диапазона поиска свободных талонов</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="visitEnd" type="xs:dateTime">
+                    <xs:annotation>
+                        <xs:documentation>конец диапазона поиска свободных талонов</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetAvaibleAppointmentsResponse">
+        <xs:annotation>
+            <xs:documentation>возвращает список свободных талонов для заданного врача и диапазона дат</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetAvaibleAppointmentsResult" nillable="true" type="q14:GetAvaibleAppointmentsResult" xmlns:q14="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SetAppointment">
+        <xs:annotation>
+            <xs:documentation>запись на прием</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idAppointment" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор талона</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idLpu" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idPat" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор пациента</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="doctorsReferral" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>код направления</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="attachedReferral" nillable="true" type="q15:SearchOneDirectionResult" xmlns:q15="http://schemas.datacontract.org/2004/07/HubService2">
+                    <xs:annotation>
+                        <xs:documentation>Объект SearchOneResponse сервиса УО</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idAppointmentPrev" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор талона записи на прием, по которой необходимо произвести перенос даты и времени</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SetAppointmentResponse">
+        <xs:annotation>
+            <xs:documentation>запись на прием</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="SetAppointmentResult" nillable="true" type="q16:SetAppointmentResult" xmlns:q16="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetAvailableDates">
+        <xs:annotation>
+            <xs:documentation>возвращает даты на которые возможна запись для конкретного врача</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idDoc" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор врача</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idLpu" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idPat" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор пациента</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="visitStart" type="xs:dateTime">
+                    <xs:annotation>
+                        <xs:documentation>начало диапазона поиска свободных дней для записи</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="visitEnd" type="xs:dateTime">
+                    <xs:annotation>
+                        <xs:documentation>конец диапазона поиска свободных дней для записи</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetAvailableDatesResponse">
+        <xs:annotation>
+            <xs:documentation>возвращает даты на которые возможна запись для конкретного врача</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetAvailableDatesResult" nillable="true" type="q17:GetAvailableDatesResult" xmlns:q17="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetDoctorList">
+        <xs:annotation>
+            <xs:documentation>возвращает список врачей</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idSpesiality" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор врачебной специальности</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idLpu" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idPat" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор пациента</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetDoctorListResponse">
+        <xs:annotation>
+            <xs:documentation>возвращает список врачей</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetDoctorListResult" nillable="true" type="q18:GetDoctorListResult" xmlns:q18="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetAvailableDoctors">
+        <xs:annotation>
+            <xs:documentation>возвращает список врачей, доступных для записи пациента на прием</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idLpu" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idPat" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор пациента</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idSpeciality" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор врачебной специальности</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ferIdSpeciality" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор врачебной специальности в федеральном справочнике специальностей</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetAvailableDoctorsResponse">
+        <xs:annotation>
+            <xs:documentation>возвращает список врачей, доступных для записи пациента на прием</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetAvailableDoctorsResult" nillable="true" type="q19:GetAvailableDoctorsResult" xmlns:q19="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetLPUList">
+        <xs:annotation>
+            <xs:documentation>возвращает список учреждений</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idDistrict" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор района</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetLPUListResponse">
+        <xs:annotation>
+            <xs:documentation>возвращает список учреждений</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetLPUListResult" nillable="true" type="q20:GetLPUListResult" xmlns:q20="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetOrgList">
+        <xs:annotation>
+            <xs:documentation>возвращает список коммерческих и государственных МО</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idDistrict" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор района</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetOrgListResponse">
+        <xs:annotation>
+            <xs:documentation>возвращает список коммерческих и государственных МО</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetOrgListResult" nillable="true" type="q21:GetOrgListResult" xmlns:q21="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetSpesialityList">
+        <xs:annotation>
+            <xs:documentation>возвращает список специальностей(должностей)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idLpu" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idPat" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор пациента</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetSpesialityListResponse">
+        <xs:annotation>
+            <xs:documentation>возвращает список специальностей(должностей)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetSpesialityListResult" nillable="true" type="q22:GetSpesialityListResult" xmlns:q22="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetLpuToRFSZIList">
+        <xs:annotation>
+            <xs:documentation>возвращает полный список учреждений проекта РФИСЗ</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetLpuToRFSZIListResponse">
+        <xs:annotation>
+            <xs:documentation>возвращает полный список учреждений проекта РФИСЗ</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetLpuToRFSZIListResult" nillable="true" type="q23:LpuListToRfiszResult" xmlns:q23="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetDistrictList">
+        <xs:annotation>
+            <xs:documentation>возвращает список районов</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetDistrictListResponse">
+        <xs:annotation>
+            <xs:documentation>возвращает список районов</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetDistrictListResult" nillable="true" type="q24:DistrictResult" xmlns:q24="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetWorkingTime">
+        <xs:annotation>
+            <xs:documentation>возвращает время работы врача</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idDoc" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор врача</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idLpu" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="visitStart" type="xs:dateTime">
+                    <xs:annotation>
+                        <xs:documentation>начальная дата для получения информации о расписании</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="visitEnd" type="xs:dateTime">
+                    <xs:annotation>
+                        <xs:documentation>конечная дата для получения информации о расписании</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetWorkingTimeResponse">
+        <xs:annotation>
+            <xs:documentation>возвращает время работы врача</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetWorkingTimeResult" nillable="true" type="q25:GetWorkingTimeResult" xmlns:q25="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetFullInfoById">
+        <xs:annotation>
+            <xs:documentation>возвращает информацию об объекте на основании его идентификатора</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idDoc" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор врача</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idLpu" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idPat" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор пациента</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetFullInfoByIdResponse">
+        <xs:annotation>
+            <xs:documentation>возвращает информацию об объекте на основании его идентификатора</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetFullInfoByIdResult" nillable="true" type="q26:GetFullInfoByIdResult" xmlns:q26="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CreateClaimForRefusal">
+        <xs:annotation>
+            <xs:documentation>создает заявку на отмену записи на прием</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idLpu" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idPat" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор пациента</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idAppointment" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор талона</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CreateClaimForRefusalResponse">
+        <xs:annotation>
+            <xs:documentation>создает заявку на отмену записи на прием</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="CreateClaimForRefusalResult" nillable="true" type="q27:CreateClaimForRefusalResult" xmlns:q27="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetPatientHistory">
+        <xs:annotation>
+            <xs:documentation>возвращает список записей и отказов от записи на прием</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idLpu" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idPat" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор пациента</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetPatientHistoryResponse">
+        <xs:annotation>
+            <xs:documentation>возвращает список записей и отказов от записи на прием</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetPatientHistoryResult" nillable="true" type="q28:GetPatientHistoryResult" xmlns:q28="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="UpdatePhoneByIdPat">
+        <xs:annotation>
+            <xs:documentation>обновляет номер телефона пациента на основании его идентификатора</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idLpu" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idPat" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор пациента</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="homePhone" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>номет домашнего телефона</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="cellPhone" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>номет мобильного телефона</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="UpdatePhoneByIdPatResponse">
+        <xs:annotation>
+            <xs:documentation>обновляет номер телефона пациента на основании его идентификатора</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="UpdatePhoneByIdPatResult" nillable="true" type="q29:UpdatePhoneByIdPatResult" xmlns:q29="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetHubUserByGuid">
+        <xs:annotation>
+            <xs:documentation>возвращает пользователей хаба</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="usersGuid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>гуид пользователя(при пустом значении возвращает весь список пользователей)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetHubUserByGuidResponse">
+        <xs:annotation>
+            <xs:documentation>возвращает пользователей хаба</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetHubUserByGuidResult" nillable="true" type="q30:GetHubUserByGuidResult" xmlns:q30="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetErrorList">
+        <xs:annotation>
+            <xs:documentation>возвращает классификатор ошибок</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetErrorListResponse">
+        <xs:annotation>
+            <xs:documentation>возвращает классификатор ошибок</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetErrorListResult" nillable="true" type="q31:GetErrorListResult" xmlns:q31="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SetWaitingList">
+        <xs:annotation>
+            <xs:documentation>добавляет пациента в лист ожидания</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idDoc" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор врача(опционально)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="nameDoc" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>фио врача(опционально)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idSpesiality" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор специальности</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="nameSpesiality" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>название специальности</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idLpu" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="rule" nillable="true" type="q32:RulesOfWaitingList" xmlns:q32="http://schemas.datacontract.org/2004/07/HubService2">
+                    <xs:annotation>
+                        <xs:documentation>правила ЛО</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="claim" type="q33:ClaimToWaitingListType" xmlns:q33="http://schemas.datacontract.org/2004/07/HubService2">
+                    <xs:annotation>
+                        <xs:documentation>причина постановки в ЛО</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idPat" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор пациента</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="namePat" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>фио пациента</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="birthday" type="xs:dateTime">
+                    <xs:annotation>
+                        <xs:documentation>дата рождения пациента</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="phone" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>контактный телефон пациента</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SetWaitingListResponse">
+        <xs:annotation>
+            <xs:documentation>добавляет пациента в лист ожидания</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="SetWaitingListResult" nillable="true" type="q34:SetWaitingListResult" xmlns:q34="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetStatusAnalysis">
+        <xs:annotation>
+            <xs:documentation>возвращает статус исследования</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idAnalysis" type="xs:long">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор исследования</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetStatusAnalysisResponse">
+        <xs:annotation>
+            <xs:documentation>возвращает статус исследования</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetStatusAnalysisResult" nillable="true" type="q35:GetStatusAnalysisResult" xmlns:q35="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SendNotificationAboutAppointment">
+        <xs:annotation>
+            <xs:documentation>метод уведомления хаба, о факте записи пациента на прием средствами МИС</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="doctor" nillable="true" type="q36:Doctor" xmlns:q36="http://schemas.datacontract.org/2004/07/HubService2">
+                    <xs:annotation>
+                        <xs:documentation>врач</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="spesiality" nillable="true" type="q37:Spesiality" xmlns:q37="http://schemas.datacontract.org/2004/07/HubService2">
+                    <xs:annotation>
+                        <xs:documentation>специальность врача</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idLpu" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="patient" nillable="true" type="q38:Patient" xmlns:q38="http://schemas.datacontract.org/2004/07/HubService2">
+                    <xs:annotation>
+                        <xs:documentation>пациент(обязательные поля: фамилия, имя, дата рождения, паспортные данные и идентификатор)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="appointment" nillable="true" type="q39:Appointment" xmlns:q39="http://schemas.datacontract.org/2004/07/HubService2">
+                    <xs:annotation>
+                        <xs:documentation>талон(обязательные поля: идентификатор и начало приема)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="doctorsReferal" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>номер направления</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="appointmentSource" type="q40:AppointmentSourceType" xmlns:q40="http://schemas.datacontract.org/2004/07/HubService2">
+                    <xs:annotation>
+                        <xs:documentation>источник записи</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="member" nillable="true" type="q41:guid" xmlns:q41="http://schemas.microsoft.com/2003/10/Serialization/">
+                    <xs:annotation>
+                        <xs:documentation>участник информационного обмена</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SendNotificationAboutAppointmentResponse">
+        <xs:annotation>
+            <xs:documentation>метод уведомления хаба, о факте записи пациента на прием средствами МИС</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="SendNotificationAboutAppointmentResult" nillable="true" type="q42:SendNotificationAboutAppointmentResult" xmlns:q42="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SendNotificationAboutAppointmentStatus">
+        <xs:annotation>
+            <xs:documentation>метод уведомления хаба, об изменении статуса записи на прием</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idNotification" nillable="true" type="xs:long">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор факта записи</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idLpu" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idPat" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор пациента</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idAppointment" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор талона для записи из соответствующего справочника целевой МИС</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="doctorsReferral" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>номер направления или номер заявки ЖОЗ</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="status" type="q43:AppointmentStatusType" xmlns:q43="http://schemas.datacontract.org/2004/07/HubService2">
+                    <xs:annotation>
+                        <xs:documentation>итоговое состояние записи</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="eventDatetime" type="xs:dateTime">
+                    <xs:annotation>
+                        <xs:documentation>время события</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SendNotificationAboutAppointmentStatusResponse">
+        <xs:annotation>
+            <xs:documentation>метод уведомления хаба, об изменении статуса записи на прием</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="SendNotificationAboutAppointmentStatusResult" nillable="true" type="q44:SendNotificationAboutAppointmentStatusResult" xmlns:q44="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetTodayAppointments">
+        <xs:annotation>
+            <xs:documentation>метод находится в тестовой эксплуатации</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetTodayAppointmentsResponse">
+        <xs:annotation>
+            <xs:documentation>метод находится в тестовой эксплуатации</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetTodayAppointmentsResult" nillable="true" type="q45:GetTodayAppointmentResult" xmlns:q45="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetLPUInfo">
+        <xs:annotation>
+            <xs:documentation>возвращает информацию по конкретному или всем ЛПУ</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idLpu" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор Системы(сервиса)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetLPUInfoResponse">
+        <xs:annotation>
+            <xs:documentation>возвращает информацию по конкретному или всем ЛПУ</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetLPUInfoResult" nillable="true" type="q46:LpuInformationResult" xmlns:q46="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetPatientsAreas">
+        <xs:annotation>
+            <xs:documentation>получение врачебных участков по пациенту</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idLpu" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ из справочника ЛПУ интеграционной платформы</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idPat" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор пациента из соответствующего справочника целевой МИС</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" type="q47:guid" xmlns:q47="http://schemas.microsoft.com/2003/10/Serialization/">
+                    <xs:annotation>
+                        <xs:documentation>авторизационный токен</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetPatientsAreasResponse">
+        <xs:annotation>
+            <xs:documentation>получение врачебных участков по пациенту</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetPatientsAreasResult" nillable="true" type="q48:GetPatientsAreasResult" xmlns:q48="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CheckIn">
+        <xs:annotation>
+            <xs:documentation>метод находится в тестовой эксплуатации</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idAppointment" nillable="true" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CheckInResponse">
+        <xs:annotation>
+            <xs:documentation>метод находится в тестовой эксплуатации</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="CheckInResult" nillable="true" type="q49:CheckInResult" xmlns:q49="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetVersion">
+        <xs:annotation>
+            <xs:documentation>получение версии хаба</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetVersionResponse">
+        <xs:annotation>
+            <xs:documentation>получение версии хаба</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetVersionResult" nillable="true" type="q50:GetVersionResult" xmlns:q50="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PatientNotification">
+        <xs:annotation>
+            <xs:documentation>передача данных для оповещения пациента</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idAppointment" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор талона для записи из соответствующего справочника целевой МИС</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="visitStart" type="xs:dateTime">
+                    <xs:annotation>
+                        <xs:documentation>дата и время начала приема</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idLpu" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ из справочника ЛПУ интеграционной платформы</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idPat" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор пациента из соответствующего справочника целевой МИС</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="contacts" nillable="true" type="q51:ArrayOfContact" xmlns:q51="http://schemas.datacontract.org/2004/07/HubService2">
+                    <xs:annotation>
+                        <xs:documentation>информация о контактах</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>авторизационный токен</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PatientNotificationResponse">
+        <xs:annotation>
+            <xs:documentation>передача данных для оповещения пациента</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="PatientNotificationResult" nillable="true" type="q52:PatientNotificationResult" xmlns:q52="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetAvailableAppointmentsByPARequest">
+        <xs:annotation>
+            <xs:documentation>запрос талонов по заявке на запись к врачу</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="attachedPARequest" nillable="true" type="q53:ActivePARequestInfo" xmlns:q53="http://schemas.datacontract.org/2004/07/HubService2.ContractsClasses.PostAppointment">
+                    <xs:annotation>
+                        <xs:documentation>данные заявки на запись к врачу</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idLpu" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ из справочника ЛПУ интеграционной платформы</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>авторизационный токен</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="GetAvailableAppointmentsByPARequestResponse">
+        <xs:annotation>
+            <xs:documentation>запрос талонов по заявке на запись к врачу</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="GetAvailableAppointmentsByPARequestResult" nillable="true" type="q54:GetAvailableAppointmentsByPARequestResult" xmlns:q54="http://schemas.datacontract.org/2004/07/HubService2.ContractsClasses.PostAppointment"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SetAppointmentByPARequest">
+        <xs:annotation>
+            <xs:documentation>осуществление записи по заявке из ЖОЗ</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="idAppointment" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор талона для записи из соответствующего справочника целевой МИС</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="attachedPARequest" nillable="true" type="q55:ActivePARequestInfo" xmlns:q55="http://schemas.datacontract.org/2004/07/HubService2.ContractsClasses.PostAppointment">
+                    <xs:annotation>
+                        <xs:documentation>данные заявки на запись к врачу</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idAppointmentPrev" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор талона записи на прием, по которой необходимо произвести перенос даты и времени</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idLpu" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор ЛПУ из справочника ЛПУ интеграционной платформы</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>авторизационный токен</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SetAppointmentByPARequestResponse">
+        <xs:annotation>
+            <xs:documentation>осуществление записи по заявке из ЖОЗ</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="SetAppointmentByPARequestResult" nillable="true" type="q56:SetAppointmentByPARequestResult" xmlns:q56="http://schemas.datacontract.org/2004/07/HubService2.ContractsClasses.PostAppointment"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="RegisterPARequest">
+        <xs:annotation>
+            <xs:documentation>регистрация заявки на прием к врачу</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="request" nillable="true" type="q57:RegisterPARequestRequest" xmlns:q57="http://schemas.datacontract.org/2004/07/HubService2.ContractsClasses.PostAppointment">
+                    <xs:annotation>
+                        <xs:documentation>контейнер параметров заявки</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>авторизационный токен</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="RegisterPARequestResponse">
+        <xs:annotation>
+            <xs:documentation>регистрация заявки на прием к врачу</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="RegisterPARequestResult" nillable="true" type="q58:RegisterPARequestResult" xmlns:q58="http://schemas.datacontract.org/2004/07/HubService2.ContractsClasses.PostAppointment"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CancelPARequest">
+        <xs:annotation>
+            <xs:documentation>отмена заявки на прием к врачу</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="request" nillable="true" type="q59:CancelPARequestRequest" xmlns:q59="http://schemas.datacontract.org/2004/07/HubService2.ContractsClasses.PostAppointment">
+                    <xs:annotation>
+                        <xs:documentation>контейнер параметров заявки</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>авторизационный токен</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CancelPARequestResponse">
+        <xs:annotation>
+            <xs:documentation>отмена заявки на прием к врачу</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="CancelPARequestResult" nillable="true" type="q60:CancelPARequestResult" xmlns:q60="http://schemas.datacontract.org/2004/07/HubService2.ContractsClasses.PostAppointment"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SearchActivePARequests">
+        <xs:annotation>
+            <xs:documentation>поиск активных заявок в ЖОЗ</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="filter" nillable="true" type="q61:SearchActivePARequestsRequest" xmlns:q61="http://schemas.datacontract.org/2004/07/HubService2.ContractsClasses.PostAppointment">
+                    <xs:annotation>
+                        <xs:documentation>контейнер параметровов поиска</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>авторизационный токен</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SearchActivePARequestsResponse">
+        <xs:annotation>
+            <xs:documentation>поиск активных заявок в ЖОЗ</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="SearchActivePARequestsResult" nillable="true" type="q62:SearchActivePARequestsResult" xmlns:q62="http://schemas.datacontract.org/2004/07/HubService2.ContractsClasses.PostAppointment"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SearchPARequests">
+        <xs:annotation>
+            <xs:documentation>поиск заявок в ЖОЗ</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="filter" nillable="true" type="q63:SearchPARequestsRequest" xmlns:q63="http://schemas.datacontract.org/2004/07/HubService2.ContractsClasses.PostAppointment">
+                    <xs:annotation>
+                        <xs:documentation>контейнер параметровов поиска</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>авторизационный токен</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SearchPARequestsResponse">
+        <xs:annotation>
+            <xs:documentation>поиск заявок в ЖОЗ</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="SearchPARequestsResult" nillable="true" type="q64:SearchPARequestsResult" xmlns:q64="http://schemas.datacontract.org/2004/07/HubService2.ContractsClasses.PostAppointment"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SearchCtoPARequests">
+        <xs:annotation>
+            <xs:documentation>поиск заявок в ЖОЗ для ЦТО</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="filter" nillable="true" type="q65:SearchCtoPARequestsRequest" xmlns:q65="http://schemas.datacontract.org/2004/07/HubService2.ContractsClasses.PostAppointment">
+                    <xs:annotation>
+                        <xs:documentation>контейнер параметровов поиска</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>авторизационный токен</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SearchCtoPARequestsResponse">
+        <xs:annotation>
+            <xs:documentation>поиск заявок в ЖОЗ для ЦТО</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="SearchCtoPARequestsResult" nillable="true" type="q66:SearchCtoPARequestsResult" xmlns:q66="http://schemas.datacontract.org/2004/07/HubService2.ContractsClasses.PostAppointment"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="HandlePARequestChanged">
+        <xs:annotation>
+            <xs:documentation>метод уведомления МИС о состоянии заявки ЖОЗ</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="info" nillable="true" type="q67:SearchPARequestInfo" xmlns:q67="http://schemas.datacontract.org/2004/07/HubService2.ContractsClasses.PostAppointment">
+                    <xs:annotation>
+                        <xs:documentation>данные заявки ЖОЗ</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>авторизационный токен</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="idHistory" nillable="true" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>идентификатор транзакции(поле необязательно для заполнения)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="HandlePARequestChangedResponse">
+        <xs:annotation>
+            <xs:documentation>метод уведомления МИС о состоянии заявки ЖОЗ</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="HandlePARequestChangedResult" nillable="true" type="q68:MethodResult" xmlns:q68="http://schemas.datacontract.org/2004/07/HubService2"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

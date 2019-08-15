@@ -1,0 +1,2692 @@
+<?xml version="1.0" encoding="utf-8"?><xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HubService2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/HubService2" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/">
+    <xs:import schemaLocation="http://r78-rc.zdrav.netrika.ru/Hub24/HubService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HubService2.Dto"/>
+    <xs:import schemaLocation="http://r78-rc.zdrav.netrika.ru/Hub24/HubService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+    <xs:import schemaLocation="http://r78-rc.zdrav.netrika.ru/Hub24/HubService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <xs:import schemaLocation="http://r78-rc.zdrav.netrika.ru/Hub24/HubService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic"/>
+    <xs:complexType name="Patient">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">класс описывающий пациента. для идентификации пациента (получения идентификатора на основании параметров для поиска) рекомендуется использовать следующие сочетания параметров: 1. Фамилия + Имя + Дата рождения 2. Фамилия + Номер документа 3. Серия документа + Номер документа. в качестве документа может выступать: паспорт гражданина РФ, паспорт моряка, военный билет, свидетельство о рождении, полис ОМС и т.д.</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="AriaNumber" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">номер врачебного участка</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Birthday" nillable="true" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">дата рождения* (рекомендуется для поиска)</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="CellPhone" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">мобильный номер телефона</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Document_N" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">номер документа* (рекомендуется для поиска)</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Document_S" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">серия документа</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="HomePhone" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">домашний номер телефона</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdPat" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">идентификатор пациента. заполняется только в возвращаемом объекте метода SearchTop10PatientResult</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">имя</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Polis_N" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">номер полиса</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Polis_S" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">серия полиса</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="SecondName" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">отчество</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Snils" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">снилс</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">фамилия* (рекомендуется для поиска)</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Patient" nillable="true" type="tns:Patient"/>
+    <xs:complexType name="CheckPatientResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - CheckPatient</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="IdPat" nillable="true" type="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">идентификатор пациента(не null при успешном выполнении метода)</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="CheckPatientResult" nillable="true" type="tns:CheckPatientResult"/>
+    <xs:complexType name="MethodResult">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ErrorList" nillable="true" type="tns:ArrayOfError">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">список ошибок, возникший при выполнении метода(количество элементов равно нулю, при успешном выполнении метода)</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdHistory" nillable="true" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">идентификатор транзакции</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Success" type="xs:boolean">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">успешность выполнения метода(true если успешно)</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="MethodResult" nillable="true" type="tns:MethodResult"/>
+    <xs:complexType name="ArrayOfError">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="Error" nillable="true" type="tns:Error"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfError" nillable="true" type="tns:ArrayOfError"/>
+    <xs:complexType name="Error">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">ошибка выполнения метода</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ErrorDescription" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">описание</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdError" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">идентификатор ошибки</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Error" nillable="true" type="tns:Error"/>
+    <xs:complexType name="CheckReferralResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Referral" nillable="true" type="q1:Referral" xmlns:q1="http://schemas.datacontract.org/2004/07/HubService2.Dto">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="CheckReferralResult" nillable="true" type="tns:CheckReferralResult"/>
+    <xs:complexType name="SearchTop10PatientResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - SearchTop10Patient</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ListPatient" nillable="true" type="tns:ArrayOfPatient">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">список пациентов</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="SearchTop10PatientResult" nillable="true" type="tns:SearchTop10PatientResult"/>
+    <xs:complexType name="ArrayOfPatient">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="Patient" nillable="true" type="tns:Patient"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfPatient" nillable="true" type="tns:ArrayOfPatient"/>
+    <xs:complexType name="AddNewPatientResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - AddNewPatient</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="IdPat" nillable="true" type="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">идентификатор пациента</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="AddNewPatientResult" nillable="true" type="tns:AddNewPatientResult"/>
+    <xs:complexType name="GetDocListFullTreeResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - GetDocListFullTree</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ListDoctor" nillable="true" type="tns:ArrayOfEssence">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">список врачей/специальностей</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="GetDocListFullTreeResult" nillable="true" type="tns:GetDocListFullTreeResult"/>
+    <xs:complexType name="ArrayOfEssence">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="Essence" nillable="true" type="tns:Essence"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfEssence" nillable="true" type="tns:ArrayOfEssence"/>
+    <xs:complexType name="Essence">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">класс описывающий любую иерархическую сущность (например ЛПУ-&gt;специальность-&gt;врач)</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">описание (для врача - номер врачебного участка)</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdEssence" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">идентификатор сущности (для врача - IdDocDoljn, для специальности - IdSpesiality, для ЛПУ - IdLPU)</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="ListEssence" nillable="true" type="tns:ArrayOfEssence">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">массив дочерних сущностей</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="NameEssence" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">название сущности</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Essence" nillable="true" type="tns:Essence"/>
+    <xs:simpleType name="AppointmentType">
+        <xs:annotation>
+            <xs:appinfo>
+                <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">перечисление, описывающее тип приема</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="отсутстствует_неопределено"/>
+            <xs:enumeration value="повторный">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="консультация">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="AppointmentType" nillable="true" type="tns:AppointmentType"/>
+    <xs:complexType name="InspectDoctorsReferalResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="IdDoc" nillable="true" type="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">идентификатор врача, возвращается только в том случае, если тип приема - повторный</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="IdLpu" type="xs:int">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">идентификатор ЛПУ в хабе</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="Id_Patient" nillable="true" type="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">пациент, получивший направление</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="Type" type="tns:AppointmentType">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">тип приема</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="InspectDoctorsReferalResult" nillable="true" type="tns:InspectDoctorsReferalResult"/>
+    <xs:complexType name="SearchOneDirectionResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="IdMq" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="MqReferralStatus" nillable="true" type="q2:Coding" xmlns:q2="http://schemas.datacontract.org/2004/07/HubService2.Dto">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="MqReferralStatusDate" nillable="true" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="QLength" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Referral" nillable="true" type="q3:Referral" xmlns:q3="http://schemas.datacontract.org/2004/07/HubService2.Dto">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="SearchOneDirectionResult" nillable="true" type="tns:SearchOneDirectionResult"/>
+    <xs:complexType name="InspectDoctorsReferral2Result">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Валидация кода направления 2</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="IdLpu" type="xs:int">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Идентификатор ЛПУ из справочника «ЛПУ» Интеграционной платформы</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="IdPat" nillable="true" type="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Идентификатор пациента в МИС ЛПУ</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="ListSpeciality" nillable="true" type="tns:ArrayOfSpeciality2">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Указывается информация о специальности</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="InspectDoctorsReferral2Result" nillable="true" type="tns:InspectDoctorsReferral2Result"/>
+    <xs:complexType name="ArrayOfSpeciality2">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="Speciality2" nillable="true" type="tns:Speciality2"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfSpeciality2" nillable="true" type="tns:ArrayOfSpeciality2"/>
+    <xs:complexType name="Speciality2">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Указывается информация о специальности</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Комментарий</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="FerIdSpeciality" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Идентификатор врачебной специальности в федеральном справочнике специальностей</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdSpeciality" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Идентификатор врачебной специальности</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="ListDoctor" nillable="true" type="tns:ArrayOfDoctor2">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Указывается информация о враче</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="NameSpeciality" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Наименование врачебной специальности</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Speciality2" nillable="true" type="tns:Speciality2"/>
+    <xs:complexType name="ArrayOfDoctor2">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="Doctor2" nillable="true" type="tns:Doctor2"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfDoctor2" nillable="true" type="tns:ArrayOfDoctor2"/>
+    <xs:complexType name="Doctor2">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Указывается информация о враче</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Комментарий</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdDoc" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Идентификатор врача в справочнике</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="ListAppointment" nillable="true" type="tns:ArrayOfAppointment">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Указывается информация о талоне (свободном временном интервале) </Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">ФИО врача (полностью)</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Snils" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">снилс врача</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Doctor2" nillable="true" type="tns:Doctor2"/>
+    <xs:complexType name="ArrayOfAppointment">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="Appointment" nillable="true" type="tns:Appointment"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfAppointment" nillable="true" type="tns:ArrayOfAppointment"/>
+    <xs:complexType name="Appointment">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">класс описывающий сущность - талон на прием</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Адрес приема врача</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdAppointment" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">идентификатор приема</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Num" nillable="true" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Номер талона в очереди</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Room" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Номер кабинета</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="VisitEnd" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">конец приема</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="VisitStart" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">начало приема</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Appointment" nillable="true" type="tns:Appointment"/>
+    <xs:complexType name="NoticeAppointment">
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:Appointment">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="EventDateTime" type="xs:dateTime">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">дата изменения статуса</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="NoticeAppointment" nillable="true" type="tns:NoticeAppointment"/>
+    <xs:complexType name="StatusAppointment">
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:Appointment">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="EventDateTime" type="xs:dateTime">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">дата изменения статуса</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="RecordDateTime" type="xs:dateTime">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">начало приема</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="StatusAppointment" nillable="true" type="tns:StatusAppointment"/>
+    <xs:complexType name="GetAvaibleAppointmentsResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - GetLpu</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ListAppointments" nillable="true" type="tns:ArrayOfAppointment">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">список ЛПУ</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="GetAvaibleAppointmentsResult" nillable="true" type="tns:GetAvaibleAppointmentsResult"/>
+    <xs:complexType name="SetAppointmentResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - SetAppointment</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Type" type="tns:SpecialistType">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">профиль врача</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="SetAppointmentResult" nillable="true" type="tns:SetAppointmentResult"/>
+    <xs:simpleType name="SpecialistType">
+        <xs:annotation>
+            <xs:appinfo>
+                <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">перечисление, указывающе узкий или широкий профидь у врача, ведущго прием</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="отсутстствует_неопределено"/>
+            <xs:enumeration value="широкого_профиля"/>
+            <xs:enumeration value="узкий"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="SpecialistType" nillable="true" type="tns:SpecialistType"/>
+    <xs:complexType name="GetAvailableDatesResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - GetAvailableDates</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="AvailableDateList" nillable="true" type="q4:ArrayOfdateTime" xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">список дат, на котрые возможна запись</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="GetAvailableDatesResult" nillable="true" type="tns:GetAvailableDatesResult"/>
+    <xs:complexType name="GetDoctorListResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - GetDocs</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Docs" nillable="true" type="tns:ArrayOfDoctor">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">список врачей</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="GetDoctorListResult" nillable="true" type="tns:GetDoctorListResult"/>
+    <xs:complexType name="ArrayOfDoctor">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="Doctor" nillable="true" type="tns:Doctor"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfDoctor" nillable="true" type="tns:ArrayOfDoctor"/>
+    <xs:complexType name="Doctor">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">класс описывающий сущность - врач</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="AriaNumber" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">номер врачебного участка</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Комментарий</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="CountFreeParticipantIE" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Количество доступных участнику информационного обмена (выполнившему запрос) талонов по запрошенному врачу</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="CountFreeTicket" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Общее количество доступных талонов по запрошенному врачу</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdDoc" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">идентификатор штатной единицы (например есть врач Петров Иван Сергеевич имеющий ставку кардиолога и терапевта в одном учреждении, при этом как кардиолог и терапевт он будет иметь разные идентификаторы)</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="LastDate" nillable="true" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Дата, на которую доступен последний талон по запрошенному врачу</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">ФИО врача</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="NearestDate" nillable="true" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Дата, на которую доступен ближайший талон по запрошенному врачу</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Snils" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Снилс врача</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Doctor" nillable="true" type="tns:Doctor"/>
+    <xs:complexType name="GetAvailableDoctorsResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - GetAvailableDoctors</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">дополнительная информация для пациента по оформлению записи</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="ListSpeciality" nillable="true" type="tns:ArrayOfSpeciality3">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">список специальностей</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="GetAvailableDoctorsResult" nillable="true" type="tns:GetAvailableDoctorsResult"/>
+    <xs:complexType name="ArrayOfSpeciality3">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="Speciality3" nillable="true" type="tns:Speciality3"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfSpeciality3" nillable="true" type="tns:ArrayOfSpeciality3"/>
+    <xs:complexType name="Speciality3">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">класс описывающий сущность - специальность (рекомендуется использовать справочник врачебных специальностей системы: регистр медработников)</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">дополнительная информация о специальности</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="CountFreeParticipantIE" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Количество доступных участнику информационного обмена (выполнившему запрос) талонов по запрошенной специальности</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="CountFreeTicket" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Общее количество доступных талонов по запрошенной специальности</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Docs" nillable="true" type="tns:ArrayOfDoctor3">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">список врачей</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="FerIdSpeciality" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">идентификатор специальности из федерального справочника специальностей</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdSpeciality" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">идентификатор специальности</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="LastDate" nillable="true" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Дата, на которую доступен последний талон по запрошенной специальности</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="NameSpeciality" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">название специальности</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="NearestDate" nillable="true" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Дата, на которую доступен ближайший талон по запрошенной специальности</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Speciality3" nillable="true" type="tns:Speciality3"/>
+    <xs:complexType name="ArrayOfDoctor3">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="Doctor3" nillable="true" type="tns:Doctor3"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfDoctor3" nillable="true" type="tns:ArrayOfDoctor3"/>
+    <xs:complexType name="Doctor3">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">класс описывающий сущность - врач</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Area" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">наименование врачебного участка</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="AreaType" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">тип врачебного участка</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Комментарий</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="CountFreeParticipantIE" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Количество доступных участнику информационного обмена (выполнившему запрос) талонов по запрошенному врачу</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="CountFreeTicket" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Общее количество доступных талонов по запрошенному врачу</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdDoc" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">идентификатор штатной единицы (например есть врач Петров Иван Сергеевич имеющий ставку кардиолога и терапевта в одном учреждении, при этом как кардиолог и терапевт он будет иметь разные идентификаторы)</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="LastDate" nillable="true" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Дата, на которую доступен последний талон по запрошенному врачу</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">ФИО врача</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="NearestDate" nillable="true" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Дата, на которую доступен ближайший талон по запрошенному врачу</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Snils" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Снилс врача</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Doctor3" nillable="true" type="tns:Doctor3"/>
+    <xs:complexType name="GetLPUListResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - GetLpuList</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ListLPU" nillable="true" type="tns:ArrayOfClinic">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">список ЛПУ</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="GetLPUListResult" nillable="true" type="tns:GetLPUListResult"/>
+    <xs:complexType name="ArrayOfClinic">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="Clinic" nillable="true" type="tns:Clinic"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfClinic" nillable="true" type="tns:ArrayOfClinic"/>
+    <xs:complexType name="Clinic">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">класс описывающий ЛПУ. для включения в хаб нового ЛПУ необходимо прислать его параметры (полное и сокращенное название, принадлежность к району, ОГРН, адрес) на почту - avshevelev@gmail.com с темой: "ЛПУ для включения в проект - Региональный фрагмент информационной системы здравоохранения"</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">описание учреждения</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="District" nillable="true" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">идентификатор района</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdLPU" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">идентификатор ЛПУ в хабе</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IsActive" type="xs:boolean">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Активность ЛПУ</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="LPUFullName" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">полное наименование учреждения, например - Санкт-Петербургское государственное учреждение здравоохранения «Городская поликлиника № XX»</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="LPUShortName" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">сокращенное наименование учреждения, например - ГП XX</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="LPUType" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">тип учреждения</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Oid" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">OID ЛПУ</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="PartOf" nillable="true" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Идентификатор родительского ЛПУ</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Clinic" nillable="true" type="tns:Clinic"/>
+    <xs:complexType name="GetOrgListResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - GetOrgList</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="OrgList" nillable="true" type="tns:ArrayOfOrgList">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">список коммерческих и государственных МО</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="GetOrgListResult" nillable="true" type="tns:GetOrgListResult"/>
+    <xs:complexType name="ArrayOfOrgList">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="OrgList" nillable="true" type="tns:OrgList"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfOrgList" nillable="true" type="tns:ArrayOfOrgList"/>
+    <xs:complexType name="OrgList">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Chief" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Contact" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="District" nillable="true" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="E_Mail" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="GIS_ID" nillable="true" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="GIS_Layer" nillable="true" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Hub_ID" nillable="true" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="ID" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Org_Address" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Org_Name" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Org_Type" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="WWW" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="WorkTime" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="OrgList" nillable="true" type="tns:OrgList"/>
+    <xs:complexType name="GetSpesialityListResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - GetLpu</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ListSpesiality" nillable="true" type="tns:ArrayOfSpesiality">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">список ЛПУ</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="LpuChanges" nillable="true" type="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Информация об изменении в работе ЛПУ</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="GetSpesialityListResult" nillable="true" type="tns:GetSpesialityListResult"/>
+    <xs:complexType name="ArrayOfSpesiality">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="Spesiality" nillable="true" type="tns:Spesiality"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfSpesiality" nillable="true" type="tns:ArrayOfSpesiality"/>
+    <xs:complexType name="Spesiality">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">класс описывающий сущность - специальность (рекомендуется использовать справочник врачебных специальностей системы: регистр медработников)</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="CountFreeParticipantIE" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Количество доступных участнику информационного обмена (выполнившему запрос) талонов по запрошенной специальности</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="CountFreeTicket" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Общее количество доступных талонов по запрошенной специальности</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="FerIdSpesiality" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">идентификатор специальности из федерального справочника специальностей</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdSpesiality" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">идентификатор специальности</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="LastDate" nillable="true" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Дата, на которую доступен последний талон по запрошенной специальности</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="NameSpesiality" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">название специальности</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="NearestDate" nillable="true" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Дата, на которую доступен ближайший талон по запрошенной специальности</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Spesiality" nillable="true" type="tns:Spesiality"/>
+    <xs:complexType name="LpuListToRfiszResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - GetLpuToRfsziList</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="LpuListToRfiszs" nillable="true" type="tns:ArrayOfLpuListToRFISZ">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">список учреждений проекта РФИСЗ</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="LpuListToRfiszResult" nillable="true" type="tns:LpuListToRfiszResult"/>
+    <xs:complexType name="ArrayOfLpuListToRFISZ">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="LpuListToRFISZ" nillable="true" type="tns:LpuListToRFISZ"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfLpuListToRFISZ" nillable="true" type="tns:ArrayOfLpuListToRFISZ"/>
+    <xs:complexType name="LpuListToRFISZ">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">учреждение проекта РФИСЗ</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="ExternalGisId" nillable="true" type="xs:double">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="ExternalHubId" nillable="true" type="xs:double">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Id" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdDistrict" nillable="true" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="InfoStand" type="xs:boolean">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="InternetReference" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IsEnableAppointment" type="xs:boolean">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IsEnableInternet" type="xs:boolean">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="LpuName" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="LpuType" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="PhoneCallCentre" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="WorkTime" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="LpuListToRFISZ" nillable="true" type="tns:LpuListToRFISZ"/>
+    <xs:complexType name="DistrictResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - GetDistrictList</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Districts" nillable="true" type="tns:ArrayOfDistrict">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">список районов</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="DistrictResult" nillable="true" type="tns:DistrictResult"/>
+    <xs:complexType name="ArrayOfDistrict">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="District" nillable="true" type="tns:District"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfDistrict" nillable="true" type="tns:ArrayOfDistrict"/>
+    <xs:complexType name="District">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="DistrictName" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdDistrict" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Okato" nillable="true" type="xs:double">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="District" nillable="true" type="tns:District"/>
+    <xs:complexType name="GetWorkingTimeResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - GetWorkingTime</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="WorkingTimeList" nillable="true" type="tns:ArrayOfWorkingTime">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">диапазоны рабочего времени</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="GetWorkingTimeResult" nillable="true" type="tns:GetWorkingTimeResult"/>
+    <xs:complexType name="ArrayOfWorkingTime">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkingTime" nillable="true" type="tns:WorkingTime"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfWorkingTime" nillable="true" type="tns:ArrayOfWorkingTime"/>
+    <xs:complexType name="WorkingTime">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">класс описывающий сущность - врач</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="DenyCause" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">причина по которой врач не ведет прием</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="RecordableDay" type="xs:boolean">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">день открыт для записи</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="VisitEnd" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">конец рабочего дня</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="VisitStart" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">начало рабочего дня</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="WorkingTime" nillable="true" type="tns:WorkingTime"/>
+    <xs:complexType name="GetFullInfoByIdResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - GetFullInfoById</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Doc" nillable="true" type="tns:Doctor">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">врач</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="DoctorsSpesiality" nillable="true" type="tns:Spesiality">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">специальность</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="LPU" nillable="true" type="tns:Clinic">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">ЛПУ</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="Pat" nillable="true" type="tns:Patient">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">пациент</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="GetFullInfoByIdResult" nillable="true" type="tns:GetFullInfoByIdResult"/>
+    <xs:complexType name="CreateClaimForRefusalResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - CreateClaimForRefusal</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="CreateClaimForRefusalResult" nillable="true" type="tns:CreateClaimForRefusalResult"/>
+    <xs:complexType name="GetPatientHistoryResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - GetPatientHistory</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ListHistoryRefusal" nillable="true" type="tns:ArrayOfHistoryRefusal">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">список отказов</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="ListHistoryVisit" nillable="true" type="tns:ArrayOfHistoryVisit">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">список посещений</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="GetPatientHistoryResult" nillable="true" type="tns:GetPatientHistoryResult"/>
+    <xs:complexType name="ArrayOfHistoryRefusal">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="HistoryRefusal" nillable="true" type="tns:HistoryRefusal"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfHistoryRefusal" nillable="true" type="tns:ArrayOfHistoryRefusal"/>
+    <xs:complexType name="HistoryRefusal">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">класс описывающий сущность - истории посещений</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:HistoryVisit">
+                <xs:sequence/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="HistoryRefusal" nillable="true" type="tns:HistoryRefusal"/>
+    <xs:complexType name="HistoryVisit">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">класс описывающий сущность - истории посещений</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="DateCreatedAppointment" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">дата записи на прием</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="DoctorBringReferal" nillable="true" type="tns:Doctor">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">врач, давший направление пациенту(объект заполняется только в случае записи по направлению)</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="DoctorRendingConsultation" nillable="true" type="tns:Doctor">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">лечащий врач, должно быть указанно фио врача</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdAppointment" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">идентификатор приема</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="SpecialityBringReferal" nillable="true" type="tns:Spesiality">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">специальность врача, давшего направление пациенту(объект заполняется только в случае записи по направлению)</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="SpecialityRendingConsultation" nillable="true" type="tns:Spesiality">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">специальность лечащего врача, должно быть указанно наименование специальности лечащего врача</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="UserCreatedAppointment" nillable="true" type="tns:User">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">пользователь записавший на прием</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="VisitStart" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">начало приема</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="HistoryVisit" nillable="true" type="tns:HistoryVisit"/>
+    <xs:complexType name="User">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">класс описывающий сущность - пользователь</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">ФИО пользователя</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="UserPosition" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">должность пользователя</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="User" nillable="true" type="tns:User"/>
+    <xs:complexType name="ArrayOfHistoryVisit">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="HistoryVisit" nillable="true" type="tns:HistoryVisit"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfHistoryVisit" nillable="true" type="tns:ArrayOfHistoryVisit"/>
+    <xs:complexType name="UpdatePhoneByIdPatResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - UpdatePhoneByIdPat</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="UpdatePhoneByIdPatResult" nillable="true" type="tns:UpdatePhoneByIdPatResult"/>
+    <xs:complexType name="GetHubUserByGuidResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - GetHubUserByGuid</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="HubUserList" nillable="true" type="tns:ArrayOfHubUser">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">пользователь для заданного гуида(список пользователей при guid=Empty)</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="GetHubUserByGuidResult" nillable="true" type="tns:GetHubUserByGuidResult"/>
+    <xs:complexType name="ArrayOfHubUser">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="HubUser" nillable="true" type="tns:HubUser"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfHubUser" nillable="true" type="tns:ArrayOfHubUser"/>
+    <xs:complexType name="HubUser">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">класс описывающий сущность - пользователь(система) хаба</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:User">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="IdDistrict" nillable="true" type="xs:int">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">район, с которым связан пользователь(заполняется только для операторов цто)</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="PublicGuid" type="ser:guid">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">гуид</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="HubUser" nillable="true" type="tns:HubUser"/>
+    <xs:complexType name="GetErrorListResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - GetErrorList</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="GetErrorListResult" nillable="true" type="tns:GetErrorListResult"/>
+    <xs:complexType name="RulesOfWaitingList">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">правила, на основании которых определяется возможность предоставления талона, для пациента, находящегося в листе ожидания</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="End" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Start" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="RulesOfWaitingList" nillable="true" type="tns:RulesOfWaitingList"/>
+    <xs:simpleType name="ClaimToWaitingListType">
+        <xs:annotation>
+            <xs:appinfo>
+                <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">перечисление, описывающее причину постановки в лист ожидания</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="отсутствуют_свободные_талоны">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="нет_удобного_времени">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="отсутствует_специалист">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="ClaimToWaitingListType" nillable="true" type="tns:ClaimToWaitingListType"/>
+    <xs:complexType name="SetWaitingListResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - SetWaitingList</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="GuidClaim" nillable="true" type="ser:guid">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">идентификатор заявки</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="SetWaitingListResult" nillable="true" type="tns:SetWaitingListResult"/>
+    <xs:complexType name="GetStatusAnalysisResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - GetStatusAnalysis</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Status" nillable="true" type="q5:KeyValuePairOfintstring" xmlns:q5="http://schemas.datacontract.org/2004/07/System.Collections.Generic">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">статус исследования</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="GetStatusAnalysisResult" nillable="true" type="tns:GetStatusAnalysisResult"/>
+    <xs:simpleType name="AppointmentSourceType">
+        <xs:annotation>
+            <xs:appinfo>
+                <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">перечисление, описывающее источник записи на прием</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ЦТО">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Инфомат">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Регистратура">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Врач_АПУ">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Интернет">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Прочее">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="AppointmentSourceType" nillable="true" type="tns:AppointmentSourceType"/>
+    <xs:complexType name="SendNotificationAboutAppointmentResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - SendNotificationAboutAppointment</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="IdNotification" nillable="true" type="xs:long">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">идентификатор факта записи</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="SendNotificationAboutAppointmentResult" nillable="true" type="tns:SendNotificationAboutAppointmentResult"/>
+    <xs:simpleType name="AppointmentStatusType">
+        <xs:annotation>
+            <xs:appinfo>
+                <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">перечисление, описывающее итоговое состояние записи</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="запись_отменена_по_инициативе_ЛПУ">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="запись_отменена_по_инициативе_пациента">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="запись_перенесена">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="посещение_состоялось">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="пациент_не_явился">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="AppointmentStatusType" nillable="true" type="tns:AppointmentStatusType"/>
+    <xs:complexType name="SendNotificationAboutAppointmentStatusResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - SendNotificationAboutAppointmentStatus</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="SendNotificationAboutAppointmentStatusResult" nillable="true" type="tns:SendNotificationAboutAppointmentStatusResult"/>
+    <xs:complexType name="GetTodayAppointmentResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - GetTodayAppointment</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="SchedulerOfDoctorList" nillable="true" type="tns:ArrayOfSchedulerOfDoctor">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="GetTodayAppointmentResult" nillable="true" type="tns:GetTodayAppointmentResult"/>
+    <xs:complexType name="ArrayOfSchedulerOfDoctor">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="SchedulerOfDoctor" nillable="true" type="tns:SchedulerOfDoctor"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfSchedulerOfDoctor" nillable="true" type="tns:ArrayOfSchedulerOfDoctor"/>
+    <xs:complexType name="SchedulerOfDoctor">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Doc" nillable="true" type="tns:Doctor">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="ShedulerOfDoctorItemCollection" nillable="true" type="tns:ArrayOfSchedulerOfDoctorItem">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="SchedulerOfDoctor" nillable="true" type="tns:SchedulerOfDoctor"/>
+    <xs:complexType name="ArrayOfSchedulerOfDoctorItem">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="SchedulerOfDoctorItem" nillable="true" type="tns:SchedulerOfDoctorItem"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfSchedulerOfDoctorItem" nillable="true" type="tns:ArrayOfSchedulerOfDoctorItem"/>
+    <xs:complexType name="SchedulerOfDoctorItem">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="AppointmentItem" nillable="true" type="tns:Appointment">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="DateStartCheckIn" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Pat" nillable="true" type="tns:Patient">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="SchedulerOfDoctorItem" nillable="true" type="tns:SchedulerOfDoctorItem"/>
+    <xs:complexType name="LpuInformationResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - GetLPUInfo</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="LpuCollection" nillable="true" type="tns:ArrayOfLpuInfo">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">список ЛПУ</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="LpuInformationResult" nillable="true" type="tns:LpuInformationResult"/>
+    <xs:complexType name="ArrayOfLpuInfo">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="LpuInfo" nillable="true" type="tns:LpuInfo"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfLpuInfo" nillable="true" type="tns:ArrayOfLpuInfo"/>
+    <xs:complexType name="LpuInfo">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">класс описывающий сущность данных выборки ЛПУ</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">адрес расположения</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Commentary" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">комментарий</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="DistrictId" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">идентификатор района</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="DistrictName" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">наименование района</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="DistrictOkato" nillable="true" type="xs:double">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">классификатор района</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">электронный адрес</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">полное наименование</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">идентификатор</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Oid" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">глобальный идентификатор медицинской организации</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">телефон</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="PublicGuid" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">публичный ключ информационной системы</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="ShortName" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">сокращенное наименование</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">тип учреждения</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="WorkTime" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">время работы</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="LpuInfo" nillable="true" type="tns:LpuInfo"/>
+    <xs:complexType name="GetPatientsAreasResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результат выполнения метода</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="PatientsAreaList" nillable="true" type="tns:ArrayOfPatientsArea">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">список врачебных участков</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="GetPatientsAreasResult" nillable="true" type="tns:GetPatientsAreasResult"/>
+    <xs:complexType name="ArrayOfPatientsArea">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="PatientsArea" nillable="true" type="tns:PatientsArea"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfPatientsArea" nillable="true" type="tns:ArrayOfPatientsArea"/>
+    <xs:complexType name="PatientsArea">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">врачебный участок</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Area" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">наименование врачебного участка</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="AreaType" type="tns:AreaType">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">вид врачебного участка</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="PatientsArea" nillable="true" type="tns:PatientsArea"/>
+    <xs:simpleType name="AreaType">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">перечисление, описывающее вид врачебного участка</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Фельдшерский">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Терапевтический">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="ВрачОбщейПрактики">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Комплексный">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Акушерский">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Приписной">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Педиатрический">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="Фтизиатрический">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="AreaType" nillable="true" type="tns:AreaType"/>
+    <xs:complexType name="CheckInResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Count" type="xs:int">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="Office" nillable="true" type="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="CheckInResult" nillable="true" type="tns:CheckInResult"/>
+    <xs:complexType name="GetVersionResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">результирующий объект метода - GetVersion</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="DatabaseVersion" nillable="true" type="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">номер версии сборки бд</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="ServiceVersion" nillable="true" type="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">номер версии сборки сервиса</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="GetVersionResult" nillable="true" type="tns:GetVersionResult"/>
+    <xs:complexType name="ArrayOfContact">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="Contact" nillable="true" type="tns:Contact"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfContact" nillable="true" type="tns:ArrayOfContact"/>
+    <xs:complexType name="Contact">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">информация о контакте</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="ContactValue" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Содержание контактной информации</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdContactType" type="xs:short">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Идентификатор типа контакта</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IsPref" type="xs:boolean">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Является ли предпочтительным видом связи</Surrogate>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Contact" nillable="true" type="tns:Contact"/>
+    <xs:complexType name="PatientNotificationResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">выходные данные о оповещении пациента</Surrogate>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:MethodResult">
+                <xs:sequence/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="PatientNotificationResult" nillable="true" type="tns:PatientNotificationResult"/>
+</xs:schema>

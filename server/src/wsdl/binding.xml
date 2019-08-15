@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jxb:bindings version="2.0" xmlns:jxb="http://java.sun.com/xml/ns/jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <jxb:globalBindings generateElementProperty="false" />
+    <jxb:bindings schemaLocation="http://r78-rc.zdrav.netrika.ru/Hub24/HubService.svc?xsd=xsd3">
+        <jxb:bindings node="//xs:complexType[@name='ArrayOfDoctor']">
+            <jxb:class name="ArrayOfDoctorDTO" />
+        </jxb:bindings>
+        <jxb:bindings node="//xs:complexType[@name='Patient']">
+            <jxb:class name="PatientDTO" />
+        </jxb:bindings>
+        <jxb:bindings node="//xs:complexType[@name='Doctor']">
+            <jxb:class name="DoctorDTO" />
+        </jxb:bindings>
+        <jxb:bindings node="//xs:schema/xs:element[@name='Doctor']">
+            <jxb:factoryMethod name="TypeDoctor"/>
+        </jxb:bindings>        
+        <jxb:bindings node="//xs:schema/xs:element[@name='Patient']">
+            <jxb:factoryMethod name="TypePatient"/>
+        </jxb:bindings>        
+        <jxb:bindings node="//xs:schema/xs:element[@name='ArrayOfDoctor']">
+            <jxb:factoryMethod name="TypeArrayOfDoctor"/>
+        </jxb:bindings>
+    </jxb:bindings>
+</jxb:bindings>

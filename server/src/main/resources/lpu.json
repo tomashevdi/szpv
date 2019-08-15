@@ -1,0 +1,44 @@
+[
+  {
+    "misId" : 513,
+    "remoteId" : 513,
+    "orgId" : 252,
+    "name" : "ВПО №1"
+  },
+  {
+    "misId" : 171,
+    "remoteId" : 136,
+    "orgId" : 6,
+    "name" : "ГП №1"
+  },
+  {
+    "misId" : 182,
+    "remoteId" : 143,
+    "orgId" : 7,
+    "name" : "ДПО №1"
+  },
+  {
+    "misId" : 183,
+    "remoteId" : 144,
+    "orgId" : 8,
+    "name" : "ДПО №2"
+  },
+  {
+    "misId" : 184,
+    "remoteId" : 145,
+    "orgId" : 9,
+    "name" : "ЖК №1"
+  },
+  {
+    "misId" : 217,
+    "remoteId" : 161,
+    "orgId" : 145,
+    "name" : "ВПО №2"
+  },
+  {
+    "misId" : 572,
+    "remoteId" : 575,
+    "orgId" : 303,
+    "name" : "ДПО №3"
+  }
+]

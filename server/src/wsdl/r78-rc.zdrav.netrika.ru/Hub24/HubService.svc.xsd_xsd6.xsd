@@ -1,0 +1,828 @@
+<?xml version="1.0" encoding="utf-8"?><xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HubService2.ContractsClasses.PostAppointment" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/HubService2.ContractsClasses.PostAppointment">
+    <xs:import schemaLocation="http://r78-rc.zdrav.netrika.ru/Hub24/HubService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HubService2"/>
+    <xs:import schemaLocation="http://r78-rc.zdrav.netrika.ru/Hub24/HubService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <xs:complexType name="ActivePARequestInfo">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdPar" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="PARequest" nillable="true" type="tns:PARequest">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="PARequestInfo" nillable="true" type="tns:PARequestInfo">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="PARequestPatient" nillable="true" type="tns:PARequestPatient">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="PASourceCreated" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="PreferredIntervals" nillable="true" type="tns:ArrayOfPARequestInterval">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ActivePARequestInfo" nillable="true" type="tns:ActivePARequestInfo"/>
+    <xs:complexType name="PARequest">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="FerIdSpeciality" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdDoc" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdLpu" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdNsiLpu" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdSpeciality" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="NameDoc" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="NameSpeciality" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="PARequest" nillable="true" type="tns:PARequest"/>
+    <xs:complexType name="PARequestInfo">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Claim" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Info" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="PARequestInfo" nillable="true" type="tns:PARequestInfo"/>
+    <xs:complexType name="PARequestPatient">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="BirthDate" nillable="true" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdPatient" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="PARequestPatientContacts" nillable="true" type="tns:PARequestPatientContacts">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="PARequestPatient" nillable="true" type="tns:PARequestPatient"/>
+    <xs:complexType name="PARequestPatientContacts">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="AdditionalInformation" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="PARequestPatientContacts" nillable="true" type="tns:PARequestPatientContacts"/>
+    <xs:complexType name="ArrayOfPARequestInterval">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="PARequestInterval" nillable="true" type="tns:PARequestInterval"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfPARequestInterval" nillable="true" type="tns:ArrayOfPARequestInterval"/>
+    <xs:complexType name="PARequestInterval">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="EndDate" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="StartDate" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="PARequestInterval" nillable="true" type="tns:PARequestInterval"/>
+    <xs:complexType name="GetAvailableAppointmentsByPARequestResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="q1:MethodResult" xmlns:q1="http://schemas.datacontract.org/2004/07/HubService2">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="IdLpu" type="xs:int">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Идентификатор ЛПУ из справочника «ЛПУ» Интеграционной платформы</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="IdPat" nillable="true" type="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Идентификатор пациента в МИС ЛПУ</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="ListSpeciality" nillable="true" type="q1:ArrayOfSpeciality2">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:string" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">Указывается информация о специальности</Surrogate>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="GetAvailableAppointmentsByPARequestResult" nillable="true" type="tns:GetAvailableAppointmentsByPARequestResult"/>
+    <xs:complexType name="SetAppointmentByPARequestResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="q2:MethodResult" xmlns:q2="http://schemas.datacontract.org/2004/07/HubService2">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Type" type="xs:int">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="SetAppointmentByPARequestResult" nillable="true" type="tns:SetAppointmentByPARequestResult"/>
+    <xs:complexType name="RegisterPARequestRequest">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="PARequest" nillable="true" type="tns:PARequest">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="PARequestInfo" nillable="true" type="tns:PARequestInfo">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="PARequestPatient" nillable="true" type="tns:PARequestPatient">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="PASource" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="PreferredIntervals" nillable="true" type="tns:ArrayOfPARequestInterval">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="RegisterPARequestRequest" nillable="true" type="tns:RegisterPARequestRequest"/>
+    <xs:complexType name="RegisterPARequestResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="q3:MethodResult" xmlns:q3="http://schemas.datacontract.org/2004/07/HubService2">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="IdPar" nillable="true" type="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="RegisterPARequestResult" nillable="true" type="tns:RegisterPARequestResult"/>
+    <xs:complexType name="CancelPARequestRequest">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="DeactivationComment" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="DeactivationReason" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdPar" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="LinkedIdPar" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="PASource" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="CancelPARequestRequest" nillable="true" type="tns:CancelPARequestRequest"/>
+    <xs:complexType name="CancelPARequestResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="q4:MethodResult" xmlns:q4="http://schemas.datacontract.org/2004/07/HubService2">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="CancellationResult" type="xs:boolean">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="IdPar" nillable="true" type="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="CancelPARequestResult" nillable="true" type="tns:CancelPARequestResult"/>
+    <xs:complexType name="SearchActivePARequestsRequest">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="Claim" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="FerIdSpeciality" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdDoc" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdLpu" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdNsiLpu" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdPar" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdPatients" nillable="true" type="q5:ArrayOfstring" xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdSpeciality" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="SearchActivePARequestsRequest" nillable="true" type="tns:SearchActivePARequestsRequest"/>
+    <xs:complexType name="SearchActivePARequestsResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="q6:MethodResult" xmlns:q6="http://schemas.datacontract.org/2004/07/HubService2">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="ActivePARequests" nillable="true" type="tns:ArrayOfActivePARequestInfo">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="Count" type="xs:int">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="SearchActivePARequestsResult" nillable="true" type="tns:SearchActivePARequestsResult"/>
+    <xs:complexType name="ArrayOfActivePARequestInfo">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="ActivePARequestInfo" nillable="true" type="tns:ActivePARequestInfo"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfActivePARequestInfo" nillable="true" type="tns:ArrayOfActivePARequestInfo"/>
+    <xs:complexType name="SearchPARequestsRequest">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="IdInfos" nillable="true" type="tns:ArrayOfIdInfo">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdPar" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="SearchPARequestsRequest" nillable="true" type="tns:SearchPARequestsRequest"/>
+    <xs:complexType name="ArrayOfIdInfo">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="IdInfo" nillable="true" type="tns:IdInfo"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfIdInfo" nillable="true" type="tns:ArrayOfIdInfo"/>
+    <xs:complexType name="IdInfo">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="IdLpu" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdPatient" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="IdInfo" nillable="true" type="tns:IdInfo"/>
+    <xs:complexType name="SearchPARequestsResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="q7:MethodResult" xmlns:q7="http://schemas.datacontract.org/2004/07/HubService2">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Count" type="xs:int">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="PARequests" nillable="true" type="tns:ArrayOfSearchPARequestInfo">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="SearchPARequestsResult" nillable="true" type="tns:SearchPARequestsResult"/>
+    <xs:complexType name="ArrayOfSearchPARequestInfo">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="SearchPARequestInfo" nillable="true" type="tns:SearchPARequestInfo"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfSearchPARequestInfo" nillable="true" type="tns:ArrayOfSearchPARequestInfo"/>
+    <xs:complexType name="SearchPARequestInfo">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:ActivePARequestInfo">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="PARequestDeactivationInfo" nillable="true" type="tns:PARequestDeactivationInfo">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="PARequestStatus" type="xs:int">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="SearchPARequestInfo" nillable="true" type="tns:SearchPARequestInfo"/>
+    <xs:complexType name="PARequestDeactivationInfo">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="DeactivationComment" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="DeactivationDate" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="DeactivationReason" nillable="true" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="LinkedIdPar" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="PASourceDeactivated" nillable="true" type="xs:int">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="PARequestDeactivationInfo" nillable="true" type="tns:PARequestDeactivationInfo"/>
+    <xs:complexType name="SearchCtoPARequestsRequest">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="FerIdSpeciality" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdDoctor" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdLpu" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IdSpeciality" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IntervalEnd" nillable="true" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="IntervalStart" nillable="true" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="PatientBirthday" nillable="true" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="PatientFirstName" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="PatientLastName" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element minOccurs="0" name="PatientMiddleName" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="SearchCtoPARequestsRequest" nillable="true" type="tns:SearchCtoPARequestsRequest"/>
+    <xs:complexType name="SearchCtoPARequestsResult">
+        <xs:annotation>
+            <xs:appinfo>
+                <Surrogate i:type="d1p1:Annotation" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:d1p1="http://schemas.datacontract.org/2004/07/RKiss.WcfAnnotation" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:SearchPARequestsResult">
+                <xs:sequence/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="SearchCtoPARequestsResult" nillable="true" type="tns:SearchCtoPARequestsResult"/>
+</xs:schema>
